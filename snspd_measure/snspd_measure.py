@@ -322,10 +322,10 @@ def sim_ic_dist(fname = 'SNSPD-stochastic-gamma.txt',
         else: pass
 
     make_plot(I,
-         bins = num_bins,
-         xlab = 'Bias Current (uA)',
-         ylab = 'Frequency',
-         title = 'Distribution of Switching Currents Simulated, samples = %s bins = %s' 
-                 % (str(num_samples), str(num_bins)))
+              bins = num_bins,
+              xlab = 'Bias Current (uA)',
+              ylab = 'Frequency',
+              title = 'Distribution of Switching Currents Simulated, samples = %s bins = %s' 
+                      % (str(num_samples), str(num_bins)))
 
     return I
