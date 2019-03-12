@@ -8,7 +8,6 @@ Created on Fri Feb  1 17:42:13 2019
 import random
 import numpy as np
 
-#%%
 def small_world(p = 0.5, n = 10, k = 2):
     # constructing matrix
     mat = [0] * n
