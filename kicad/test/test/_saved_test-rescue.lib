@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# _saved_test-rescue:LSHM-test
+# LSHM-test
 #
-DEF _saved_test-rescue:LSHM-test U 0 40 Y Y 1 F N
+DEF LSHM-test U 0 40 Y Y 1 F N
 F0 "U" 650 900 50 H V C CNN
-F1 "_saved_test-rescue:LSHM-test" 750 300 50 V V C CNN
+F1 "LSHM-test" 750 300 50 V V C CNN
 F2 "" 750 300 50 V I C CNN
 F3 "" 750 300 50 V I C CNN
 DRAW

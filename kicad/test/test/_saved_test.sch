@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 29 0
+LIBS:_saved_test-cache
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -14,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L test:LSHM U2
+L _saved_test-rescue:LSHM-test U2
 U 1 1 5CA5CA20
 P 5450 3600
 F 0 "U2" H 6200 3235 50  0000 C CNN
@@ -25,7 +26,7 @@ F 3 "" V 6200 3900 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L test:LSHM U1
+L _saved_test-rescue:LSHM-test U1
 U 1 1 5C92FA02
 P 4850 4250
 F 0 "U1" H 5600 5265 50  0000 C CNN
