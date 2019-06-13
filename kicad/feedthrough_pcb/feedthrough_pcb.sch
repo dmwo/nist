@@ -56,4 +56,294 @@ Wire Wire Line
 	5900 4350 6000 4350
 Wire Wire Line
 	6000 4450 5900 4450
+Wire Wire Line
+	5300 3550 5250 3550
+Wire Wire Line
+	5250 3550 5250 3650
+Wire Wire Line
+	5250 4450 5300 4450
+Wire Wire Line
+	5300 4350 5250 4350
+Connection ~ 5250 4350
+Wire Wire Line
+	5250 4350 5250 4450
+Wire Wire Line
+	5250 4250 5300 4250
+Connection ~ 5250 4250
+Wire Wire Line
+	5250 4250 5250 4350
+Wire Wire Line
+	5300 4150 5250 4150
+Connection ~ 5250 4150
+Wire Wire Line
+	5250 4150 5250 4250
+Wire Wire Line
+	5250 4050 5300 4050
+Connection ~ 5250 4050
+Wire Wire Line
+	5250 4050 5250 4150
+Wire Wire Line
+	5300 3950 5250 3950
+Connection ~ 5250 3950
+Wire Wire Line
+	5250 3950 5250 4050
+Wire Wire Line
+	5250 3850 5300 3850
+Connection ~ 5250 3850
+Wire Wire Line
+	5250 3850 5250 3950
+Wire Wire Line
+	5300 3750 5250 3750
+Connection ~ 5250 3750
+Wire Wire Line
+	5250 3750 5250 3850
+Wire Wire Line
+	5250 3650 5300 3650
+Connection ~ 5250 3650
+Wire Wire Line
+	5250 3650 5250 3750
+Wire Wire Line
+	6600 3550 6650 3550
+Wire Wire Line
+	6650 3550 6650 3650
+Wire Wire Line
+	6650 4450 6600 4450
+Wire Wire Line
+	6600 4350 6650 4350
+Connection ~ 6650 4350
+Wire Wire Line
+	6650 4350 6650 4450
+Wire Wire Line
+	6650 4250 6600 4250
+Connection ~ 6650 4250
+Wire Wire Line
+	6650 4250 6650 4350
+Wire Wire Line
+	6600 4150 6650 4150
+Connection ~ 6650 4150
+Wire Wire Line
+	6650 4150 6650 4250
+Wire Wire Line
+	6650 4050 6600 4050
+Connection ~ 6650 4050
+Wire Wire Line
+	6650 4050 6650 4150
+Wire Wire Line
+	6600 3950 6650 3950
+Connection ~ 6650 3950
+Wire Wire Line
+	6650 3950 6650 4050
+Wire Wire Line
+	6650 3850 6600 3850
+Connection ~ 6650 3850
+Wire Wire Line
+	6650 3850 6650 3950
+Wire Wire Line
+	6600 3750 6650 3750
+Connection ~ 6650 3750
+Wire Wire Line
+	6650 3750 6650 3850
+Wire Wire Line
+	6650 3650 6600 3650
+Connection ~ 6650 3650
+Wire Wire Line
+	6650 3650 6650 3750
+Connection ~ 5250 4450
+Connection ~ 6650 4450
+Wire Wire Line
+	5600 4650 5600 4700
+Wire Wire Line
+	5600 4700 6300 4700
+Wire Wire Line
+	6300 4700 6300 4650
+Wire Wire Line
+	6300 4700 6650 4700
+Wire Wire Line
+	6650 4450 6650 4700
+Connection ~ 6300 4700
+Wire Wire Line
+	5600 4700 5250 4700
+Wire Wire Line
+	5250 4450 5250 4700
+Connection ~ 5600 4700
+$Comp
+L power:GND #PWR0101
+U 1 1 5CC18787
+P 5250 4750
+F 0 "#PWR0101" H 5250 4500 50  0001 C CNN
+F 1 "GND" H 5255 4577 50  0000 C CNN
+F 2 "" H 5250 4750 50  0001 C CNN
+F 3 "" H 5250 4750 50  0001 C CNN
+	1    5250 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4750 5250 4700
+Connection ~ 5250 4700
+$Comp
+L feedthrough_pcb:LSHM-110-02.5-L-DV-A-S-TR U3
+U 1 1 5CC204DC
+P 7750 4000
+F 0 "U3" H 7750 4715 50  0000 C CNN
+F 1 "LSHM-110-02.5-L-DV-A-S-TR" H 7750 4624 50  0000 C CNN
+F 2 "feedthrough_pcb:LSHM-110-02.5-L-DV-A-S-TR" H 7750 4700 50  0001 C CNN
+F 3 "" H 7750 4700 50  0001 C CNN
+	1    7750 4000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L feedthrough_pcb:LSHM-110-02.5-L-DV-A-S-TR U4
+U 1 1 5CC204E2
+P 8450 4000
+F 0 "U4" H 8450 4715 50  0000 C CNN
+F 1 "LSHM-110-02.5-L-DV-A-S-TR" H 8450 4624 50  0000 C CNN
+F 2 "feedthrough_pcb:LSHM-110-02.5-L-DV-A-S-TR" H 8450 4700 50  0001 C CNN
+F 3 "" H 8450 4700 50  0001 C CNN
+	1    8450 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 3550 8150 3550
+Wire Wire Line
+	8150 3650 8050 3650
+Wire Wire Line
+	8050 3750 8150 3750
+Wire Wire Line
+	8150 3850 8050 3850
+Wire Wire Line
+	8050 3950 8150 3950
+Wire Wire Line
+	8150 4050 8050 4050
+Wire Wire Line
+	8050 4150 8150 4150
+Wire Wire Line
+	8150 4250 8050 4250
+Wire Wire Line
+	8050 4350 8150 4350
+Wire Wire Line
+	8150 4450 8050 4450
+Wire Wire Line
+	7450 3550 7400 3550
+Wire Wire Line
+	7400 3550 7400 3650
+Wire Wire Line
+	7400 4450 7450 4450
+Wire Wire Line
+	7450 4350 7400 4350
+Connection ~ 7400 4350
+Wire Wire Line
+	7400 4350 7400 4450
+Wire Wire Line
+	7400 4250 7450 4250
+Connection ~ 7400 4250
+Wire Wire Line
+	7400 4250 7400 4350
+Wire Wire Line
+	7450 4150 7400 4150
+Connection ~ 7400 4150
+Wire Wire Line
+	7400 4150 7400 4250
+Wire Wire Line
+	7400 4050 7450 4050
+Connection ~ 7400 4050
+Wire Wire Line
+	7400 4050 7400 4150
+Wire Wire Line
+	7450 3950 7400 3950
+Connection ~ 7400 3950
+Wire Wire Line
+	7400 3950 7400 4050
+Wire Wire Line
+	7400 3850 7450 3850
+Connection ~ 7400 3850
+Wire Wire Line
+	7400 3850 7400 3950
+Wire Wire Line
+	7450 3750 7400 3750
+Connection ~ 7400 3750
+Wire Wire Line
+	7400 3750 7400 3850
+Wire Wire Line
+	7400 3650 7450 3650
+Connection ~ 7400 3650
+Wire Wire Line
+	7400 3650 7400 3750
+Wire Wire Line
+	8750 3550 8800 3550
+Wire Wire Line
+	8800 3550 8800 3650
+Wire Wire Line
+	8800 4450 8750 4450
+Wire Wire Line
+	8750 4350 8800 4350
+Connection ~ 8800 4350
+Wire Wire Line
+	8800 4350 8800 4450
+Wire Wire Line
+	8800 4250 8750 4250
+Connection ~ 8800 4250
+Wire Wire Line
+	8800 4250 8800 4350
+Wire Wire Line
+	8750 4150 8800 4150
+Connection ~ 8800 4150
+Wire Wire Line
+	8800 4150 8800 4250
+Wire Wire Line
+	8800 4050 8750 4050
+Connection ~ 8800 4050
+Wire Wire Line
+	8800 4050 8800 4150
+Wire Wire Line
+	8750 3950 8800 3950
+Connection ~ 8800 3950
+Wire Wire Line
+	8800 3950 8800 4050
+Wire Wire Line
+	8800 3850 8750 3850
+Connection ~ 8800 3850
+Wire Wire Line
+	8800 3850 8800 3950
+Wire Wire Line
+	8750 3750 8800 3750
+Connection ~ 8800 3750
+Wire Wire Line
+	8800 3750 8800 3850
+Wire Wire Line
+	8800 3650 8750 3650
+Connection ~ 8800 3650
+Wire Wire Line
+	8800 3650 8800 3750
+Connection ~ 7400 4450
+Connection ~ 8800 4450
+Wire Wire Line
+	7750 4650 7750 4700
+Wire Wire Line
+	7750 4700 8450 4700
+Wire Wire Line
+	8450 4700 8450 4650
+Wire Wire Line
+	8450 4700 8800 4700
+Wire Wire Line
+	8800 4450 8800 4700
+Connection ~ 8450 4700
+Wire Wire Line
+	7750 4700 7400 4700
+Wire Wire Line
+	7400 4450 7400 4700
+Connection ~ 7750 4700
+$Comp
+L power:GND #PWR0102
+U 1 1 5CC20533
+P 7400 4750
+F 0 "#PWR0102" H 7400 4500 50  0001 C CNN
+F 1 "GND" H 7405 4577 50  0000 C CNN
+F 2 "" H 7400 4750 50  0001 C CNN
+F 3 "" H 7400 4750 50  0001 C CNN
+	1    7400 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 4750 7400 4700
+Connection ~ 7400 4700
 $EndSCHEMATC
