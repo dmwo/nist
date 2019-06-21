@@ -1,0 +1,13 @@
+(module CONSMA001-SMD-G (layer F.Cu) (tedit 5D0C187A)
+  (fp_text reference REF** (at 0 -5.5363) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value CONSMA001-SMD-G (at 0 -6.5363) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad 1 thru_hole circle (at 0 0) (size 3.05 3.05) (drill 2.05) (layers *.Cu *.Mask))
+  (pad 2 smd rect (at -2.66 2.66) (size 2.44 2.44) (layers F.Cu F.Paste F.Mask))
+  (pad 2 smd rect (at -2.66 -2.66 90) (size 2.44 2.44) (layers F.Cu F.Paste F.Mask))
+  (pad 2 smd rect (at 2.66 -2.66) (size 2.44 2.44) (layers F.Cu F.Paste F.Mask))
+  (pad 2 smd rect (at 2.66 2.66) (size 2.44 2.44) (layers F.Cu F.Paste F.Mask))
+)
