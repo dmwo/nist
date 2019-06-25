@@ -1,4 +1,4 @@
-14571705662134626
+14573267072260514
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (http://www.bulgin.com/media/bulgin/data/Battery_holders.pdf)
@@ -61123,14 +61123,21 @@ THT DIP DIL ZIF 25.4mm 1000mil Socket
 0
 40
 40
-Station04
+Station05
 CON-SMA-EDGE
 
 
 0
 5
 2
-Station04
+Station05
+CONSMA001-SMD-G
+
+
+0
+5
+2
+Station05
 LSHM-110-02.5-L-DV-A-S-TR
 
 
