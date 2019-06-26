@@ -1,4 +1,4 @@
-(module LSHM-110-02.5-L-DV-A-S-TR (layer F.Cu) (tedit 5D0BEE03)
+(module LSHM-110-02.5-L-DV-A-S-TR (layer F.Cu) (tedit 5D13BD4F)
   (fp_text reference U2 (at 0.04 3.85) (layer F.SilkS) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -43,4 +43,9 @@
   (pad 21 thru_hole circle (at 4.975 -1.26) (size 1 1) (drill 1) (layers *.Cu *.Mask))
   (pad 21 thru_hole circle (at -3.42 0.74) (size 1.45 1.45) (drill 1.45) (layers *.Cu *.Mask))
   (pad 21 thru_hole circle (at 3.5 0.74) (size 1.45 1.45) (drill 1.45) (layers *.Cu *.Mask))
+  (model ${KIPRJMOD}/Station05.3dshapes/LSHM-110-02.5-L-DV-A-S-TR.wrl
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )
