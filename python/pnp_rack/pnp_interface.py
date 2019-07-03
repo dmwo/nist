@@ -18,21 +18,20 @@ class PNPRack:
         Parameters
         ----------
         port    : string, Arduino USB port (in the form 'COMXX')
-        timeout : int   , time[sec] to attempt communication before error
         """
 
         # Declaring variables
         self.slot_DAC = (1,3) # DAC PNP slot
         self.slot_ADC = (2,3) # ADC PNP slot
-        self.addr_ADC = 0x14  # ADC I2C address
         self.addr_DAC = 0x60  # DAC I2C address
+        self.addr_ADC = 0x14  # ADC I2C address
         self.timeout  = 5     # Response timeout [sec]
 
         # Initialising Arduino as a serial object with matching baud 19200
         self.Arduino = serial.Serial(port, 19200, timeout = self.timeout)
 
-        # Arduino returns 's\r\n' when finished initialising
-        if not 's\r\n' in self.Arduino.readline().decode():
+        # Arduino returns 's' when finished initialising
+        if not 's' in self.read():
             raise Exception('Failed to connect to Arduino')
 
         # Resetting DAC
@@ -42,7 +41,7 @@ class PNPRack:
         self.Arduino.close()
 
     def read(self):
-        return self.Arduino.readline().decode()
+        return self.Arduino.readline().decode().strip()
 
     def write(self, data):
         self.Arduino.write(data.encode())
@@ -63,7 +62,7 @@ class PNPRack:
  
     def writeBytes(self, addr, data):
         """ Communicates with the Arduino and provides information needed to
-        write byte data to at I2C device.
+        write byte data to an I2C device.
 
         Parameters
         ----------
@@ -160,7 +159,7 @@ class PNPRack:
         
         print('The integer DAC value is: {}'.format(str(out)))
         print('The DAC voltage is: {} V'.format(str(round(volt, 3))))
-        return volt
+        # return volt
 
     def readADC(self, slot = None, ref = 5):
         """ Requests a read of the LTC2451 16-bit ADC and retrieves both the 
@@ -191,9 +190,9 @@ class PNPRack:
         
         print('The integer ADC value is: {}'.format(str(out)))
         print('The ADC voltage is: {} V'.format(str(round(volt, 3))))
-        return volt
+        # return volt
 
+port = 'COM11'
 try: pnp.close()
 except: pass
-port = 'COM11'
 pnp = PNPRack(port) 
