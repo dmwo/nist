@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Igloo09)(type Legacy)(uri ${KIPRJMOD}/Igloo09.lib)(options "")(descr ""))
+  (lib (name Igloo09-rescue)(type Legacy)(uri ${KIPRJMOD}/Igloo09-rescue.lib)(options "")(descr ""))
+)

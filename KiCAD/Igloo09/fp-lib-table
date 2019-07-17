@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Igloo09)(type KiCad)(uri ${KIPRJMOD}/Igloo09.pretty)(options "")(descr ""))
+)
