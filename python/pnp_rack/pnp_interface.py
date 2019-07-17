@@ -36,7 +36,7 @@ class PNPRack:
 
         # Resetting DAC
         self.setDACV(0)
-    
+
     def close(self):
         self.Arduino.close()
 
@@ -59,7 +59,7 @@ class PNPRack:
         msg = 's{0}'.format(''.join([chr(8-n) for n in slot]))
         self.write(msg)
         self.read()
- 
+
     def writeBytes(self, addr, data):
         """ Communicates with the Arduino and provides information needed to
         write byte data to an I2C device.
@@ -93,7 +93,7 @@ class PNPRack:
         # Requesting read data from target device
         msg = 'r{0}{1}'.format(chr(addr), chr(num_bytes))
         self.write(msg)
-        
+
         timeout = time.time() + self.timeout
         in_data = []
         while len(in_data) < num_bytes:
@@ -115,7 +115,7 @@ class PNPRack:
         ----------
         volt : float, voltage setting of the DAC (range 0-3.288[V])
         slot : tuple, pnp slot of target device (of form (row, col))
-        """        
+        """
 
         # Check that input conditions are met, set default values otherwise
         if not slot: slot = self.slot_DAC
@@ -134,19 +134,19 @@ class PNPRack:
         Parameters
         ----------
         slot : tuple, pnp slot of target device (of form (row, col))
-        
+
         Returns
         -------
         volt : float, voltage value of the DAC
-        """ 
-        
+        """
+
         # Accessing the DAC
         if not slot: slot = self.slot_DAC
         self.setSlot(slot)
         self.writeBytes(self.addr_DAC, ()) # must write before read to wake DAC
         out = []
         timeout = time.time() + self.timeout
-        
+
         # Continue to read bytes until 2 bytes have been received or until
         # timeout occurs
         while len(out) != 2 and timeout > time.time():
@@ -156,38 +156,38 @@ class PNPRack:
             raise Exception('Failed to read DAC register')
         out = out[1] # second byte contains relevant voltage data
         volt = 3.288 * out / 255.
-        
+
         print('The integer DAC value is: {}'.format(str(out)))
         print('The DAC voltage is: {} V'.format(str(round(volt, 3))))
         # return volt
 
     def readADC(self, slot = None, ref = 5):
-        """ Requests a read of the LTC2451 16-bit ADC and retrieves both the 
+        """ Requests a read of the LTC2451 16-bit ADC and retrieves both the
         integer value at the ADC register and the current voltage of the ADC.
         Prints both values and returns the voltage.
-        
+
         Parameters
         ----------
         slot : tuple, pnp slot of target device (of form (row, col))
         ref  : int  , reference value
-        
+
         Returns
         -------
         volt : float, voltage value of the ADC
-        """         
+        """
 
         # Accessing the ADC
         if not slot: slot = self.slot_ADC
         self.setSlot(slot)
         self.writeBytes(self.addr_ADC, (0x00,)) # wake and set up device
-        
+
         time.sleep(.05)
         # ADC reads before measuring--must read twice
         self.readBytes(self.addr_ADC, 2)
         out = self.readBytes(self.addr_ADC, 2) # returns two output bytes
         out = (out[0] << 8) | out[1] # combine bytes into single integer
         volt = float(out) * float(ref) / 65535.
-        
+
         print('The integer ADC value is: {}'.format(str(out)))
         print('The ADC voltage is: {} V'.format(str(round(volt, 3))))
         # return volt
@@ -195,4 +195,4 @@ class PNPRack:
 port = 'COM11'
 try: pnp.close()
 except: pass
-pnp = PNPRack(port) 
+pnp = PNPRack(port)
