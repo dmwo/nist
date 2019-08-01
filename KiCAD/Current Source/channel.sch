@@ -1,0 +1,706 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:R R19
+U 1 1 59ED1256
+P 4050 3250
+AR Path="/59ED0E6A/59ED1256" Ref="R19"  Part="1" 
+AR Path="/59ED3D7B/59ED1256" Ref="R15"  Part="1" 
+AR Path="/59ED3D94/59ED1256" Ref="R7"  Part="1" 
+AR Path="/59ED3DAD/59ED1256" Ref="R11"  Part="1" 
+F 0 "R7" V 4130 3250 50  0000 C CNN
+F 1 "100k" V 4050 3250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3980 3250 50  0001 C CNN
+F 3 "" H 4050 3250 50  0001 C CNN
+F 4 "Yageo" H 0   0   50  0001 C CNN "MFR"
+F 5 "RT0805DRE0710KL" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "YAG3358CT-ND" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4050 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R22
+U 1 1 59ED125E
+P 4050 3900
+AR Path="/59ED0E6A/59ED125E" Ref="R22"  Part="1" 
+AR Path="/59ED3D7B/59ED125E" Ref="R18"  Part="1" 
+AR Path="/59ED3D94/59ED125E" Ref="R10"  Part="1" 
+AR Path="/59ED3DAD/59ED125E" Ref="R14"  Part="1" 
+F 0 "R10" V 4130 3900 50  0000 C CNN
+F 1 "10k" V 4050 3900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3980 3900 50  0001 C CNN
+F 3 "" H 4050 3900 50  0001 C CNN
+F 4 "Yageo" H 0   0   50  0001 C CNN "MFR"
+F 5 "RT0805DRE0710KL" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "YAG3358CT-ND" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4050 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R20
+U 1 1 59ED1265
+P 4350 3500
+AR Path="/59ED0E6A/59ED1265" Ref="R20"  Part="1" 
+AR Path="/59ED3D7B/59ED1265" Ref="R16"  Part="1" 
+AR Path="/59ED3D94/59ED1265" Ref="R8"  Part="1" 
+AR Path="/59ED3DAD/59ED1265" Ref="R12"  Part="1" 
+F 0 "R8" V 4430 3500 50  0000 C CNN
+F 1 "100k" V 4350 3500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4280 3500 50  0001 C CNN
+F 3 "" H 4350 3500 50  0001 C CNN
+F 4 "Yageo" H 0   0   50  0001 C CNN "MFR"
+F 5 "RT0805DRE07100KL" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "311-2774-1-ND" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4350 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R21
+U 1 1 59ED126C
+P 4350 3700
+AR Path="/59ED0E6A/59ED126C" Ref="R21"  Part="1" 
+AR Path="/59ED3D7B/59ED126C" Ref="R17"  Part="1" 
+AR Path="/59ED3D94/59ED126C" Ref="R9"  Part="1" 
+AR Path="/59ED3DAD/59ED126C" Ref="R13"  Part="1" 
+F 0 "R9" V 4430 3700 50  0000 C CNN
+F 1 "100k" V 4350 3700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4280 3700 50  0001 C CNN
+F 3 "" H 4350 3700 50  0001 C CNN
+F 4 "Yageo" H 0   0   50  0001 C CNN "MFR"
+F 5 "RT0805DRE07100KL" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "311-2774-1-ND" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4350 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C30
+U 1 1 59ED1273
+P 4750 3850
+AR Path="/59ED0E6A/59ED1273" Ref="C30"  Part="1" 
+AR Path="/59ED3D7B/59ED1273" Ref="C23"  Part="1" 
+AR Path="/59ED3D94/59ED1273" Ref="C9"  Part="1" 
+AR Path="/59ED3DAD/59ED1273" Ref="C16"  Part="1" 
+F 0 "C9" H 4775 3950 50  0000 L CNN
+F 1 "0.1uF" H 4775 3750 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4788 3700 50  0001 C CNN
+F 3 "" H 4750 3850 50  0001 C CNN
+F 4 "CL21B104KOANNNC" H 0   0   50  0001 C CNN "MPN"
+F 5 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 6 "490-1767-1-ND " H 0   0   50  0001 C CNN "SPN"
+F 7 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4750 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C28
+U 1 1 59ED127A
+P 4750 3350
+AR Path="/59ED0E6A/59ED127A" Ref="C28"  Part="1" 
+AR Path="/59ED3D7B/59ED127A" Ref="C21"  Part="1" 
+AR Path="/59ED3D94/59ED127A" Ref="C7"  Part="1" 
+AR Path="/59ED3DAD/59ED127A" Ref="C14"  Part="1" 
+F 0 "C7" H 4775 3450 50  0000 L CNN
+F 1 "0.1uF" H 4850 3350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4788 3200 50  0001 C CNN
+F 3 "" H 4750 3350 50  0001 C CNN
+F 4 "GRM31C5C1E104JA01L " H 4750 3350 60  0001 C CNN "Part"
+F 5 "490-1767-1-ND " H 4750 3350 60  0001 C CNN "Digikey"
+F 6 "CL21B104KOANNNC" H 0   0   50  0001 C CNN "MPN"
+F 7 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 8 "-" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    4750 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C29
+U 1 1 59ED1281
+P 5000 3600
+AR Path="/59ED0E6A/59ED1281" Ref="C29"  Part="1" 
+AR Path="/59ED3D7B/59ED1281" Ref="C22"  Part="1" 
+AR Path="/59ED3D94/59ED1281" Ref="C8"  Part="1" 
+AR Path="/59ED3DAD/59ED1281" Ref="C15"  Part="1" 
+F 0 "C8" H 5025 3700 50  0000 L CNN
+F 1 "1uF 6.3V X7R 0805" H 5025 3500 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5038 3450 50  0001 C CNN
+F 3 "" H 5000 3600 50  0001 C CNN
+F 4 "CC0805KKX7R8BB105" H 5000 3600 60  0001 C CNN "MPN"
+F 5 "Yageo" H 5000 3600 60  0001 C CNN "Manufacturer"
+F 6 "-" H 0   0   50  0001 C CNN "MFR"
+F 7 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 8 "311-3418-1-ND" H 0   0   50  0001 C CNN "SPN"
+F 9 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    5000 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C31
+U 1 1 59ED1AD1
+P 6350 4050
+AR Path="/59ED0E6A/59ED1AD1" Ref="C31"  Part="1" 
+AR Path="/59ED3D7B/59ED1AD1" Ref="C24"  Part="1" 
+AR Path="/59ED3D94/59ED1AD1" Ref="C10"  Part="1" 
+AR Path="/59ED3DAD/59ED1AD1" Ref="C17"  Part="1" 
+F 0 "C10" H 6375 4150 50  0000 L CNN
+F 1 "0.1uF" H 6100 3950 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6388 3900 50  0001 C CNN
+F 3 "" H 6350 4050 50  0001 C CNN
+F 4 "Samsung" H 0   0   50  0001 C CNN "MFR"
+F 5 "CL21B104KOANNNC" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "-" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6350 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1 C32
+U 1 1 59ED1B39
+P 6600 4050
+AR Path="/59ED0E6A/59ED1B39" Ref="C32"  Part="1" 
+AR Path="/59ED3D7B/59ED1B39" Ref="C25"  Part="1" 
+AR Path="/59ED3D94/59ED1B39" Ref="C11"  Part="1" 
+AR Path="/59ED3DAD/59ED1B39" Ref="C18"  Part="1" 
+F 0 "C11" H 6625 4150 50  0000 L CNN
+F 1 "10uF" H 6625 3950 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder" H 6600 4050 50  0001 C CNN
+F 3 "" H 6600 4050 50  0001 C CNN
+F 4 "F930J106KAA" H 6600 4050 60  0001 C CNN "MPN"
+F 5 "Vishay" H 6600 4050 60  0001 C CNN "Manufacturer"
+F 6 "F930J106KAA " H 6600 4050 60  0001 C CNN "MFN2"
+F 7 "AVX" H 0   0   50  0001 C CNN "MFR"
+F 8 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 9 "478-8150-1-ND" H 0   0   50  0001 C CNN "SPN"
+F 10 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6600 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Ferrite_Bead_Small L4
+U 1 1 59ED27B9
+P 6000 2350
+AR Path="/59ED0E6A/59ED27B9" Ref="L4"  Part="1" 
+AR Path="/59ED3D7B/59ED27B9" Ref="L3"  Part="1" 
+AR Path="/59ED3D94/59ED27B9" Ref="L1"  Part="1" 
+AR Path="/59ED3DAD/59ED27B9" Ref="L2"  Part="1" 
+F 0 "L1" V 6150 2300 50  0000 L CNN
+F 1 "MMZ2012Y152B " V 6075 2300 50  0000 L CNN
+F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5930 2350 50  0001 C CNN
+F 3 "" H 6000 2350 50  0001 C CNN
+F 4 "TDK" H 0   0   50  0001 C CNN "MFR"
+F 5 "MMZ2012Y152BTD25" H 0   0   50  0001 C CNN "MPN"
+F 6 "digikey" H 0   0   50  0001 C CNN "SPR"
+F 7 "445-172871-1-ND" H 0   0   50  0001 C CNN "SPN"
+F 8 "-" H 0   0   50  0001 C CNN "SPURL"
+	1    6000 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG05
+U 1 1 59EEDC8E
+P 5650 2150
+AR Path="/59ED0E6A/59EEDC8E" Ref="#FLG05"  Part="1" 
+AR Path="/59ED3D7B/59EEDC8E" Ref="#FLG04"  Part="1" 
+AR Path="/59ED3D94/59EEDC8E" Ref="#FLG02"  Part="1" 
+AR Path="/59ED3DAD/59EEDC8E" Ref="#FLG03"  Part="1" 
+F 0 "#FLG02" H 5650 2225 50  0001 C CNN
+F 1 "PWR_FLAG" H 5650 2300 50  0000 C CNN
+F 2 "" H 5650 2150 50  0001 C CNN
+F 3 "" H 5650 2150 50  0001 C CNN
+	1    5650 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C26
+U 1 1 5A493E0D
+P 4300 1900
+AR Path="/59ED0E6A/5A493E0D" Ref="C26"  Part="1" 
+AR Path="/59ED3D7B/5A493E0D" Ref="C19"  Part="1" 
+AR Path="/59ED3D94/5A493E0D" Ref="C5"  Part="1" 
+AR Path="/59ED3DAD/5A493E0D" Ref="C12"  Part="1" 
+F 0 "C5" H 4325 2000 50  0000 L CNN
+F 1 "0.1uF" H 4400 1900 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4338 1750 50  0001 C CNN
+F 3 "" H 4300 1900 50  0001 C CNN
+F 4 "GRM31C5C1E104JA01L " H 4300 1900 60  0001 C CNN "Part"
+F 5 "490-1767-1-ND " H 4300 1900 60  0001 C CNN "Digikey"
+F 6 "CL21B104KOANNNC" H -450 -1450 50  0001 C CNN "MPN"
+F 7 "digikey" H -450 -1450 50  0001 C CNN "SPR"
+F 8 "490-1767-1-ND " H -450 -1450 50  0001 C CNN "SPN"
+F 9 "-" H -450 -1450 50  0001 C CNN "SPURL"
+	1    4300 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C27
+U 1 1 5A493E6F
+P 3850 2600
+AR Path="/59ED0E6A/5A493E6F" Ref="C27"  Part="1" 
+AR Path="/59ED3D7B/5A493E6F" Ref="C20"  Part="1" 
+AR Path="/59ED3D94/5A493E6F" Ref="C6"  Part="1" 
+AR Path="/59ED3DAD/5A493E6F" Ref="C13"  Part="1" 
+F 0 "C6" H 3875 2700 50  0000 L CNN
+F 1 "0.1uF" H 3950 2600 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3888 2450 50  0001 C CNN
+F 3 "" H 3850 2600 50  0001 C CNN
+F 4 "GRM31C5C1E104JA01L " H 3850 2600 60  0001 C CNN "Part"
+F 5 "490-1767-1-ND " H 3850 2600 60  0001 C CNN "Digikey"
+F 6 "CL21B104KOANNNC" H -900 -750 50  0001 C CNN "MPN"
+F 7 "digikey" H -900 -750 50  0001 C CNN "SPR"
+F 8 "490-1767-1-ND " H -900 -750 50  0001 C CNN "SPN"
+F 9 "-" H -900 -750 50  0001 C CNN "SPURL"
+	1    3850 2600
+	1    0    0    -1  
+$EndComp
+Text Label 5650 2350 0    60   ~ 0
+Vpower
+Text Label 6500 3800 0    60   ~ 0
+Vpower
+Text HLabel 6100 2350 2    60   Input ~ 0
+Vin
+Text HLabel 7150 2700 0    60   Input ~ 0
+gnd
+Text HLabel 3400 3450 0    60   Output ~ 0
+I+
+Text HLabel 3400 3550 0    60   Input ~ 0
+V+
+Text HLabel 3400 3650 0    60   Input ~ 0
+V-
+Text HLabel 3400 3750 0    60   Output ~ 0
+I-
+Text HLabel 6450 3400 2    60   Output ~ 0
+out
+Text HLabel 2500 1850 0    60   Input ~ 0
+1Vin
+Text Label 4300 1750 0    60   ~ 0
+Vpower
+Wire Wire Line
+	4050 3450 4050 3400
+Wire Wire Line
+	3400 3450 3800 3450
+Wire Wire Line
+	4200 3500 3650 3500
+Wire Wire Line
+	4200 3700 3650 3700
+Wire Wire Line
+	3400 3750 4050 3750
+Wire Wire Line
+	4500 3700 4750 3700
+Wire Wire Line
+	4900 3700 4900 3750
+Wire Wire Line
+	4900 3750 5000 3750
+Wire Wire Line
+	5150 3750 5150 3600
+Wire Wire Line
+	5150 3600 5400 3600
+Wire Wire Line
+	4500 3500 4750 3500
+Wire Wire Line
+	4900 3500 4900 3450
+Wire Wire Line
+	4900 3450 5000 3450
+Wire Wire Line
+	5150 3450 5150 3500
+Wire Wire Line
+	5150 3500 5400 3500
+Wire Wire Line
+	5400 3800 5400 3700
+Wire Wire Line
+	6400 3600 6750 3600
+Wire Wire Line
+	4750 4000 4750 4100
+Wire Wire Line
+	4050 4050 4050 4100
+Wire Wire Line
+	4750 3200 4750 3150
+Wire Wire Line
+	6400 3500 6450 3500
+Wire Wire Line
+	6450 3500 6450 3400
+Wire Wire Line
+	6450 3400 6400 3400
+Wire Wire Line
+	6400 3700 6500 3700
+Wire Wire Line
+	6500 3700 6500 3900
+Wire Wire Line
+	6350 3900 6500 3900
+Wire Wire Line
+	3650 3700 3650 3650
+Wire Wire Line
+	3650 3650 3400 3650
+Wire Wire Line
+	3650 3500 3650 3550
+Wire Wire Line
+	3650 3550 3400 3550
+Wire Wire Line
+	7150 2700 7250 2700
+Wire Wire Line
+	5400 3400 5400 3300
+Wire Wire Line
+	5400 3300 5350 3300
+Wire Wire Line
+	5650 2150 5650 2350
+Wire Wire Line
+	7250 2700 7250 3100
+Wire Wire Line
+	2650 2600 2600 2600
+Wire Wire Line
+	2600 2600 2600 2350
+Wire Wire Line
+	1750 2350 2600 2350
+Wire Wire Line
+	3600 2350 3600 2600
+Wire Wire Line
+	3600 2600 3550 2600
+Wire Wire Line
+	2650 2800 2600 2800
+Wire Wire Line
+	2600 2800 2600 3000
+Wire Wire Line
+	2650 2700 2550 2700
+Wire Wire Line
+	2600 1750 2200 1750
+Wire Wire Line
+	2500 1850 2600 1850
+Wire Wire Line
+	2600 1950 2200 1950
+Wire Wire Line
+	2200 1950 2200 1750
+Wire Wire Line
+	2600 1650 1750 1650
+Wire Wire Line
+	1750 1650 1750 2350
+Wire Wire Line
+	4050 1850 3700 1850
+Wire Wire Line
+	4050 1850 4050 1950
+Wire Wire Line
+	3700 1950 4050 1950
+Wire Wire Line
+	3700 2700 3550 2700
+Wire Wire Line
+	3700 1750 3850 1750
+Wire Wire Line
+	3850 2450 3700 2450
+Wire Wire Line
+	3800 3450 3800 3000
+Wire Wire Line
+	3800 3000 2600 3000
+Connection ~ 4750 3700
+Connection ~ 5000 3750
+Connection ~ 4750 3500
+Connection ~ 5000 3450
+Connection ~ 6500 3900
+Connection ~ 2200 1750
+Connection ~ 2600 2350
+Connection ~ 4050 1950
+Connection ~ 3800 3450
+Wire Wire Line
+	4750 3700 4900 3700
+Wire Wire Line
+	5000 3750 5150 3750
+Wire Wire Line
+	4750 3500 4900 3500
+Wire Wire Line
+	5000 3450 5150 3450
+Wire Wire Line
+	6500 3900 6600 3900
+Wire Wire Line
+	5650 2350 5900 2350
+Wire Wire Line
+	2200 1750 2100 1750
+Wire Wire Line
+	2600 2350 3600 2350
+Wire Wire Line
+	4050 1950 4050 3100
+Wire Wire Line
+	3700 2450 3700 2700
+Wire Wire Line
+	3800 3450 4050 3450
+$Comp
+L Current_Source:AD8276ARMZ IC11
+U 1 1 5D4297EE
+P 2600 1650
+AR Path="/59ED0E6A/5D4297EE" Ref="IC11"  Part="1" 
+AR Path="/59ED3D7B/5D4297EE" Ref="IC8"  Part="1" 
+AR Path="/59ED3D94/5D4297EE" Ref="IC2"  Part="1" 
+AR Path="/59ED3DAD/5D4297EE" Ref="IC5"  Part="1" 
+F 0 "IC2" H 3150 1917 50  0000 C CNN
+F 1 "AD8276ARMZ" H 3150 1826 50  0000 C CNN
+F 2 "Current_Source:SOP65P490X110-8N" H 3150 1100 50  0001 C CNN
+F 3 "http://docs-europe.electrocomponents.com/webdocs/10ad/0900766b810adb2e.pdf" H 3150 1000 50  0001 C CNN
+F 4 "Analog Devices AD8276ARMZ, Differential Amplifier 0.55MHz Rail to Rail Output 8-pin MSOP" H 3150 900 50  0001 C CNN "Description"
+F 5 "RS" H 3150 800 50  0001 C CNN "Supplier_Name"
+F 6 "7590042" H 3150 700 50  0001 C CNN "RS Part Number"
+F 7 "Analog Devices" H 3150 600 50  0001 C CNN "Manufacturer_Name"
+F 8 "AD8276ARMZ" H 3150 500 50  0001 C CNN "Manufacturer_Part_Number"
+F 9 "1.1" H 3550 200 50  0001 C CNN "Height"
+	1    2600 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Current_Source:AD8603AUJZ-R2 IC12
+U 1 1 5D429956
+P 2650 2600
+AR Path="/59ED0E6A/5D429956" Ref="IC12"  Part="1" 
+AR Path="/59ED3D7B/5D429956" Ref="IC9"  Part="1" 
+AR Path="/59ED3D94/5D429956" Ref="IC3"  Part="1" 
+AR Path="/59ED3DAD/5D429956" Ref="IC6"  Part="1" 
+F 0 "IC3" H 3100 2867 50  0000 C CNN
+F 1 "AD8603AUJZ-R2" H 3100 2776 50  0000 C CNN
+F 2 "Current_Source:SOT95P280X100-5N" H 3100 2150 50  0001 C CNN
+F 3 "http://componentsearchengine.com/Datasheets/3/AD8603AUJZ-R2.pdf" H 3100 2050 50  0001 C CNN
+F 4 "AD8603AUJZ-R2, Operational Amplifier 0.4MHz CMOS, Rail-Rail, 3 V, 5-Pin TSOT" H 3100 1950 50  0001 C CNN "Description"
+F 5 "RS" H 3100 1850 50  0001 C CNN "Supplier_Name"
+F 6 "6977322" H 3100 1750 50  0001 C CNN "RS Part Number"
+F 7 "Analog Devices" H 3100 1650 50  0001 C CNN "Manufacturer_Name"
+F 8 "AD8603AUJZ-R2" H 3100 1550 50  0001 C CNN "Manufacturer_Part_Number"
+F 9 "1" H 3400 1250 50  0001 C CNN "Height"
+	1    2650 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Current_Source:AD8237ARMZ IC13
+U 1 1 5D429A53
+P 5400 3400
+AR Path="/59ED0E6A/5D429A53" Ref="IC13"  Part="1" 
+AR Path="/59ED3D7B/5D429A53" Ref="IC10"  Part="1" 
+AR Path="/59ED3D94/5D429A53" Ref="IC4"  Part="1" 
+AR Path="/59ED3DAD/5D429A53" Ref="IC7"  Part="1" 
+F 0 "IC4" H 5900 3667 50  0000 C CNN
+F 1 "AD8237ARMZ" H 5900 3576 50  0000 C CNN
+F 2 "Current_Source:SOP65P490X110-8N" H 5900 2850 50  0001 C CNN
+F 3 "http://www.analog.com/media/en/technical-documentation/data-sheets/AD8237.pdf" H 5900 2750 50  0001 C CNN
+F 4 "Instrumentation Amp Micropower RRIO MSOP Analog Devices AD8237ARMZ Instrumentation Amplifier, 75V Offset 6MHz GBW, CMMR 106dB, 1.8  5.5 V, 8-Pin MSOP" H 5900 2650 50  0001 C CNN "Description"
+F 5 "RS" H 5900 2550 50  0001 C CNN "Supplier_Name"
+F 6 "7785105" H 5900 2450 50  0001 C CNN "RS Part Number"
+F 7 "Analog Devices" H 5900 2350 50  0001 C CNN "Manufacturer_Name"
+F 8 "AD8237ARMZ" H 5900 2250 50  0001 C CNN "Manufacturer_Part_Number"
+F 9 "1.1" H 6250 1950 50  0001 C CNN "Height"
+	1    5400 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 2450 3850 1750
+Connection ~ 3850 2450
+Connection ~ 3850 1750
+Wire Wire Line
+	3850 1750 4300 1750
+Wire Wire Line
+	6350 4200 6600 4200
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43339D
+P 4050 4100
+AR Path="/5D43339D" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D43339D" Ref="#PWR0102"  Part="1" 
+AR Path="/59ED3DAD/5D43339D" Ref="#PWR0113"  Part="1" 
+AR Path="/59ED3D7B/5D43339D" Ref="#PWR0124"  Part="1" 
+AR Path="/59ED0E6A/5D43339D" Ref="#PWR0135"  Part="1" 
+F 0 "#PWR0102" H 4050 3850 50  0001 C CNN
+F 1 "GNDA" H 4055 3927 50  0000 C CNN
+F 2 "" H 4050 4100 50  0001 C CNN
+F 3 "" H 4050 4100 50  0001 C CNN
+	1    4050 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D434C76
+P 4750 4100
+AR Path="/5D434C76" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D434C76" Ref="#PWR0103"  Part="1" 
+AR Path="/59ED3DAD/5D434C76" Ref="#PWR0114"  Part="1" 
+AR Path="/59ED3D7B/5D434C76" Ref="#PWR0125"  Part="1" 
+AR Path="/59ED0E6A/5D434C76" Ref="#PWR0136"  Part="1" 
+F 0 "#PWR0103" H 4750 3850 50  0001 C CNN
+F 1 "GNDA" H 4755 3927 50  0000 C CNN
+F 2 "" H 4750 4100 50  0001 C CNN
+F 3 "" H 4750 4100 50  0001 C CNN
+	1    4750 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43654F
+P 5400 3800
+AR Path="/5D43654F" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D43654F" Ref="#PWR0104"  Part="1" 
+AR Path="/59ED3DAD/5D43654F" Ref="#PWR0115"  Part="1" 
+AR Path="/59ED3D7B/5D43654F" Ref="#PWR0126"  Part="1" 
+AR Path="/59ED0E6A/5D43654F" Ref="#PWR0137"  Part="1" 
+F 0 "#PWR0104" H 5400 3550 50  0001 C CNN
+F 1 "GNDA" H 5405 3627 50  0000 C CNN
+F 2 "" H 5400 3800 50  0001 C CNN
+F 3 "" H 5400 3800 50  0001 C CNN
+	1    5400 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D437E28
+P 7250 3100
+AR Path="/5D437E28" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D437E28" Ref="#PWR0105"  Part="1" 
+AR Path="/59ED3DAD/5D437E28" Ref="#PWR0116"  Part="1" 
+AR Path="/59ED3D7B/5D437E28" Ref="#PWR0127"  Part="1" 
+AR Path="/59ED0E6A/5D437E28" Ref="#PWR0138"  Part="1" 
+F 0 "#PWR0105" H 7250 2850 50  0001 C CNN
+F 1 "GNDA" H 7255 2927 50  0000 C CNN
+F 2 "" H 7250 3100 50  0001 C CNN
+F 3 "" H 7250 3100 50  0001 C CNN
+	1    7250 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43973D
+P 4300 2050
+AR Path="/5D43973D" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D43973D" Ref="#PWR0106"  Part="1" 
+AR Path="/59ED3DAD/5D43973D" Ref="#PWR0117"  Part="1" 
+AR Path="/59ED3D7B/5D43973D" Ref="#PWR0128"  Part="1" 
+AR Path="/59ED0E6A/5D43973D" Ref="#PWR0139"  Part="1" 
+F 0 "#PWR0106" H 4300 1800 50  0001 C CNN
+F 1 "GNDA" H 4305 1877 50  0000 C CNN
+F 2 "" H 4300 2050 50  0001 C CNN
+F 3 "" H 4300 2050 50  0001 C CNN
+	1    4300 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43B016
+P 3850 2750
+AR Path="/5D43B016" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D43B016" Ref="#PWR0107"  Part="1" 
+AR Path="/59ED3DAD/5D43B016" Ref="#PWR0118"  Part="1" 
+AR Path="/59ED3D7B/5D43B016" Ref="#PWR0129"  Part="1" 
+AR Path="/59ED0E6A/5D43B016" Ref="#PWR0140"  Part="1" 
+F 0 "#PWR0107" H 3850 2500 50  0001 C CNN
+F 1 "GNDA" H 3855 2577 50  0000 C CNN
+F 2 "" H 3850 2750 50  0001 C CNN
+F 3 "" H 3850 2750 50  0001 C CNN
+	1    3850 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43E1E6
+P 2100 1750
+AR Path="/5D43E1E6" Ref="#PWR?"  Part="1" 
+AR Path="/59ED0E6A/5D43E1E6" Ref="#PWR0141"  Part="1" 
+AR Path="/59ED3D94/5D43E1E6" Ref="#PWR0108"  Part="1" 
+AR Path="/59ED3DAD/5D43E1E6" Ref="#PWR0119"  Part="1" 
+AR Path="/59ED3D7B/5D43E1E6" Ref="#PWR0130"  Part="1" 
+F 0 "#PWR0108" H 2100 1500 50  0001 C CNN
+F 1 "GNDA" H 2105 1577 50  0000 C CNN
+F 2 "" H 2100 1750 50  0001 C CNN
+F 3 "" H 2100 1750 50  0001 C CNN
+	1    2100 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D43FABF
+P 2550 2700
+AR Path="/5D43FABF" Ref="#PWR?"  Part="1" 
+AR Path="/59ED0E6A/5D43FABF" Ref="#PWR0142"  Part="1" 
+AR Path="/59ED3D94/5D43FABF" Ref="#PWR0109"  Part="1" 
+AR Path="/59ED3DAD/5D43FABF" Ref="#PWR0120"  Part="1" 
+AR Path="/59ED3D7B/5D43FABF" Ref="#PWR0131"  Part="1" 
+F 0 "#PWR0109" H 2550 2450 50  0001 C CNN
+F 1 "GNDA" H 2555 2527 50  0000 C CNN
+F 2 "" H 2550 2700 50  0001 C CNN
+F 3 "" H 2550 2700 50  0001 C CNN
+	1    2550 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D441398
+P 5350 3300
+AR Path="/5D441398" Ref="#PWR?"  Part="1" 
+AR Path="/59ED0E6A/5D441398" Ref="#PWR0143"  Part="1" 
+AR Path="/59ED3D94/5D441398" Ref="#PWR0110"  Part="1" 
+AR Path="/59ED3DAD/5D441398" Ref="#PWR0121"  Part="1" 
+AR Path="/59ED3D7B/5D441398" Ref="#PWR0132"  Part="1" 
+F 0 "#PWR0110" H 5350 3050 50  0001 C CNN
+F 1 "GNDA" H 5355 3127 50  0000 C CNN
+F 2 "" H 5350 3300 50  0001 C CNN
+F 3 "" H 5350 3300 50  0001 C CNN
+	1    5350 3300
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D442C71
+P 6750 3600
+AR Path="/5D442C71" Ref="#PWR?"  Part="1" 
+AR Path="/59ED0E6A/5D442C71" Ref="#PWR0144"  Part="1" 
+AR Path="/59ED3D94/5D442C71" Ref="#PWR0111"  Part="1" 
+AR Path="/59ED3DAD/5D442C71" Ref="#PWR0122"  Part="1" 
+AR Path="/59ED3D7B/5D442C71" Ref="#PWR0133"  Part="1" 
+F 0 "#PWR0111" H 6750 3350 50  0001 C CNN
+F 1 "GNDA" H 6755 3427 50  0000 C CNN
+F 2 "" H 6750 3600 50  0001 C CNN
+F 3 "" H 6750 3600 50  0001 C CNN
+	1    6750 3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D447759
+P 4750 3150
+AR Path="/5D447759" Ref="#PWR?"  Part="1" 
+AR Path="/59ED0E6A/5D447759" Ref="#PWR0145"  Part="1" 
+AR Path="/59ED3D94/5D447759" Ref="#PWR0112"  Part="1" 
+AR Path="/59ED3DAD/5D447759" Ref="#PWR0123"  Part="1" 
+AR Path="/59ED3D7B/5D447759" Ref="#PWR0134"  Part="1" 
+F 0 "#PWR0112" H 4750 2900 50  0001 C CNN
+F 1 "GNDA" H 4755 2977 50  0000 C CNN
+F 2 "" H 4750 3150 50  0001 C CNN
+F 3 "" H 4750 3150 50  0001 C CNN
+	1    4750 3150
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GNDA #PWR?
+U 1 1 5D459F1B
+P 6350 4200
+AR Path="/5D459F1B" Ref="#PWR?"  Part="1" 
+AR Path="/59ED3D94/5D459F1B" Ref="#PWR0146"  Part="1" 
+AR Path="/59ED3DAD/5D459F1B" Ref="#PWR0147"  Part="1" 
+AR Path="/59ED3D7B/5D459F1B" Ref="#PWR0148"  Part="1" 
+AR Path="/59ED0E6A/5D459F1B" Ref="#PWR0149"  Part="1" 
+F 0 "#PWR0146" H 6350 3950 50  0001 C CNN
+F 1 "GNDA" H 6355 4027 50  0000 C CNN
+F 2 "" H 6350 4200 50  0001 C CNN
+F 3 "" H 6350 4200 50  0001 C CNN
+	1    6350 4200
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

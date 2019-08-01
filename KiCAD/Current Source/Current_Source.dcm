@@ -1,0 +1,23 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD8237ARMZ
+D Instrumentation Amp Micropower RRIO MSOP Analog Devices AD8237ARMZ Instrumentation Amplifier, 75V Offset 6MHz GBW, CMMR 106dB, 1.8  5.5 V, 8-Pin MSOP
+F http://www.analog.com/media/en/technical-documentation/data-sheets/AD8237.pdf
+$ENDCMP
+#
+$CMP AD8276ARMZ
+D Analog Devices AD8276ARMZ, Differential Amplifier 0.55MHz Rail to Rail Output 8-pin MSOP
+F http://docs-europe.electrocomponents.com/webdocs/10ad/0900766b810adb2e.pdf
+$ENDCMP
+#
+$CMP AD8603AUJZ-R2
+D AD8603AUJZ-R2, Operational Amplifier 0.4MHz CMOS, Rail-Rail, 3 V, 5-Pin TSOT
+F http://componentsearchengine.com/Datasheets/3/AD8603AUJZ-R2.pdf
+$ENDCMP
+#
+$CMP ADR440ARMZ
+D V-Ref Precision 2.048V 10mA 8-Pin MSOP
+F http://docs-europe.electrocomponents.com/webdocs/0de0/0900766b80de0ad0.pdf
+$ENDCMP
+#
+#End Doc Library

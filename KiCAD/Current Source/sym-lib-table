@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Current_Source)(type Legacy)(uri ${KIPRJMOD}/Current_Source.lib)(options "")(descr ""))
+)
