@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Slush01-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -441,7 +442,7 @@ Wire Wire Line
 Wire Wire Line
 	3800 3450 4050 3450
 $Comp
-L Current_Source:AD8276ARMZ IC11
+L Slush01:AD8276ARMZ IC11
 U 1 1 5D4297EE
 P 2600 1650
 AR Path="/59ED0E6A/5D4297EE" Ref="IC11"  Part="1" 
@@ -450,7 +451,7 @@ AR Path="/59ED3D94/5D4297EE" Ref="IC2"  Part="1"
 AR Path="/59ED3DAD/5D4297EE" Ref="IC5"  Part="1" 
 F 0 "IC2" H 3150 1917 50  0000 C CNN
 F 1 "AD8276ARMZ" H 3150 1826 50  0000 C CNN
-F 2 "Current_Source:SOP65P490X110-8N" H 3150 1100 50  0001 C CNN
+F 2 "Slush01:MSOP-8" H 3150 1100 50  0001 C CNN
 F 3 "http://docs-europe.electrocomponents.com/webdocs/10ad/0900766b810adb2e.pdf" H 3150 1000 50  0001 C CNN
 F 4 "Analog Devices AD8276ARMZ, Differential Amplifier 0.55MHz Rail to Rail Output 8-pin MSOP" H 3150 900 50  0001 C CNN "Description"
 F 5 "RS" H 3150 800 50  0001 C CNN "Supplier_Name"
@@ -462,7 +463,7 @@ F 9 "1.1" H 3550 200 50  0001 C CNN "Height"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Current_Source:AD8603AUJZ-R2 IC12
+L Slush01:AD8603AUJZ-R2 IC12
 U 1 1 5D429956
 P 2650 2600
 AR Path="/59ED0E6A/5D429956" Ref="IC12"  Part="1" 
@@ -471,7 +472,7 @@ AR Path="/59ED3D94/5D429956" Ref="IC3"  Part="1"
 AR Path="/59ED3DAD/5D429956" Ref="IC6"  Part="1" 
 F 0 "IC3" H 3100 2867 50  0000 C CNN
 F 1 "AD8603AUJZ-R2" H 3100 2776 50  0000 C CNN
-F 2 "Current_Source:SOT95P280X100-5N" H 3100 2150 50  0001 C CNN
+F 2 "Slush01:TSOT-23-5" H 3100 2150 50  0001 C CNN
 F 3 "http://componentsearchengine.com/Datasheets/3/AD8603AUJZ-R2.pdf" H 3100 2050 50  0001 C CNN
 F 4 "AD8603AUJZ-R2, Operational Amplifier 0.4MHz CMOS, Rail-Rail, 3 V, 5-Pin TSOT" H 3100 1950 50  0001 C CNN "Description"
 F 5 "RS" H 3100 1850 50  0001 C CNN "Supplier_Name"
@@ -483,7 +484,7 @@ F 9 "1" H 3400 1250 50  0001 C CNN "Height"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Current_Source:AD8237ARMZ IC13
+L Slush01:AD8237ARMZ IC13
 U 1 1 5D429A53
 P 5400 3400
 AR Path="/59ED0E6A/5D429A53" Ref="IC13"  Part="1" 
@@ -492,7 +493,7 @@ AR Path="/59ED3D94/5D429A53" Ref="IC4"  Part="1"
 AR Path="/59ED3DAD/5D429A53" Ref="IC7"  Part="1" 
 F 0 "IC4" H 5900 3667 50  0000 C CNN
 F 1 "AD8237ARMZ" H 5900 3576 50  0000 C CNN
-F 2 "Current_Source:SOP65P490X110-8N" H 5900 2850 50  0001 C CNN
+F 2 "Slush01:MSOP-8" H 5900 2850 50  0001 C CNN
 F 3 "http://www.analog.com/media/en/technical-documentation/data-sheets/AD8237.pdf" H 5900 2750 50  0001 C CNN
 F 4 "Instrumentation Amp Micropower RRIO MSOP Analog Devices AD8237ARMZ Instrumentation Amplifier, 75V Offset 6MHz GBW, CMMR 106dB, 1.8  5.5 V, 8-Pin MSOP" H 5900 2650 50  0001 C CNN "Description"
 F 5 "RS" H 5900 2550 50  0001 C CNN "Supplier_Name"

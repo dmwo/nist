@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Slush01-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -172,20 +173,6 @@ Wire Wire Line
 Wire Wire Line
 	3200 1550 3300 1550
 Wire Wire Line
-	3300 1550 3300 1750
-Wire Wire Line
-	3300 1750 3200 1750
-Wire Wire Line
-	3300 1750 3300 1950
-Wire Wire Line
-	3300 1950 3200 1950
-Connection ~ 3300 1750
-Wire Wire Line
-	3300 1950 3300 2050
-Wire Wire Line
-	3300 2050 3200 2050
-Connection ~ 3300 1950
-Wire Wire Line
 	3200 1650 3400 1650
 $Comp
 L power:GNDA #PWR01
@@ -226,9 +213,6 @@ F7 "I-" O L 2750 3600 60
 F8 "out" O R 4450 3450 60 
 F9 "1Vin" I R 4450 3300 60 
 $EndSheet
-Wire Wire Line
-	3300 2050 3300 2500
-Connection ~ 3300 2050
 $Comp
 L power:GND #PWR03
 U 1 1 5D583B02
@@ -380,17 +364,6 @@ Wire Wire Line
 Wire Wire Line
 	4700 3150 4450 3150
 Connection ~ 4700 3150
-$Comp
-L Regulator_Linear:LM78L05_SO8 U1
-U 1 1 5D69F559
-P 4250 1450
-F 0 "U1" H 4250 1692 50  0000 C CNN
-F 1 "LM78L05_SO8" H 4250 1601 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 4350 1650 50  0001 C CIN
-F 3 "http://www.fairchildsemi.com/ds/LM/LM78L05A.pdf" H 4450 1450 50  0001 C CNN
-	1    4250 1450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4250 1750 4250 1800
 $Comp
@@ -455,13 +428,6 @@ Wire Wire Line
 Wire Wire Line
 	2250 6000 2750 6000
 Wire Wire Line
-	2900 2450 2900 2500
-Wire Wire Line
-	2900 2500 3300 2500
-Connection ~ 3300 2500
-Wire Wire Line
-	3300 2500 3300 2550
-Wire Wire Line
 	1850 4050 1950 4050
 Wire Wire Line
 	1850 4950 2550 4950
@@ -480,12 +446,12 @@ Wire Wire Line
 Wire Wire Line
 	5850 3350 5850 3550
 $Comp
-L Current_Source:ADR440ARMZ IC1
+L Slush01:ADR440ARMZ IC1
 U 1 1 5D42964B
 P 5850 3050
 F 0 "IC1" H 6350 3317 50  0000 C CNN
 F 1 "ADR440ARMZ" H 6350 3226 50  0000 C CNN
-F 2 "Current_Source:SOP65P490X110-8N" H 6350 2500 50  0001 C CNN
+F 2 "Slush01:MSOP-8" H 6350 2500 50  0001 C CNN
 F 3 "http://docs-europe.electrocomponents.com/webdocs/0de0/0900766b80de0ad0.pdf" H 6350 2400 50  0001 C CNN
 F 4 "V-Ref Precision 2.048V 10mA 8-Pin MSOP" H 6350 2300 50  0001 C CNN "Description"
 F 5 "RS" H 6350 2200 50  0001 C CNN "Supplier_Name"
@@ -497,38 +463,51 @@ F 9 "1.1" H 6700 1600 50  0001 C CNN "Height"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Current_Source:DB9F J1
+L Slush01:DB9F J1
 U 1 1 5D42E11B
 P 2900 1850
 F 0 "J1" H 2820 2542 50  0000 C CNN
 F 1 "DB9F" H 2820 2451 50  0000 C CNN
-F 2 "Current_Source:K202XHT-E9S-N" H 2900 1850 50  0001 C CNN
+F 2 "Slush01:K202XHT-E9S-N" H 2900 1850 50  0001 C CNN
 F 3 "" H 2900 1850 50  0001 C CNN
 	1    2900 1850
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Current_Source:90122-0128 J2
+L Slush01:90122-0128 J2
 U 1 1 5D72D6A3
 P 1500 5600
 F 0 "J2" H 1681 7375 50  0000 C CNN
 F 1 "90122-0128" H 1681 7284 50  0000 C CNN
-F 2 "Current_Source:90122-0128" H 1650 6000 50  0001 C CNN
+F 2 "Slush01:90122-0128" H 1650 6000 50  0001 C CNN
 F 3 "" H 1650 6000 50  0001 C CNN
 	1    1500 5600
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDA #PWR?
+L power:GNDA #PWR0101
 U 1 1 5D44ABAD
 P 4600 6600
-AR Path="/5D44ABAD" Ref="#PWR?"  Part="1" 
+AR Path="/5D44ABAD" Ref="#PWR0101"  Part="1" 
 AR Path="/59ED0E6A/5D44ABAD" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4600 6350 50  0001 C CNN
+F 0 "#PWR0101" H 4600 6350 50  0001 C CNN
 F 1 "GNDA" H 4605 6427 50  0000 C CNN
 F 2 "" H 4600 6600 50  0001 C CNN
 F 3 "" H 4600 6600 50  0001 C CNN
 	1    4600 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 1550 3300 2550
+$Comp
+L Slush01:LM78L05 IC14
+U 1 1 5D43B63A
+P 4250 1500
+F 0 "IC14" H 4250 1792 50  0000 C CNN
+F 1 "LM78L05" H 4250 1701 50  0000 C CNN
+F 2 "Slush01:SOIC-8" H 4250 1800 50  0001 C CNN
+F 3 "" H 4250 1800 50  0001 C CNN
+	1    4250 1500
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

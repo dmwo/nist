@@ -1,4 +1,4 @@
-(module K202XHT-E9S-N (layer F.Cu) (tedit 5D409526)
+(module K202XHT-E9S-N (layer F.Cu) (tedit 5D43691E)
   (fp_text reference REF** (at 0 4.95) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -198,12 +198,7 @@
   (pad 10 thru_hole circle (at 7.95 0.55) (size 2.25 2.25) (drill 1.5) (layers *.Cu *.Mask))
   (pad 10 thru_hole circle (at -12.495 0.55) (size 4.3 4.3) (drill 3.05) (layers *.Cu *.Mask))
   (pad 10 thru_hole circle (at 12.495 0.55) (size 4.3 4.3) (drill 3.05) (layers *.Cu *.Mask))
-  (model "C:/Users/dmo2/Documents/GitHub/nist/KiCAD/Current Source/Current_Source.3dshapes/K202XHT-E9P-N_rB2.wrl"
-    (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
-  )
-  (model "C:/Users/dmo2/Documents/GitHub/nist/KiCAD/Current Source/Current_Source.3dshapes/K202XHT-E9S-N.wrl"
+  (model C:/Users/dmo2/Documents/GitHub/nist/KiCAD/Slush01/Slush01.3dshapes/K202XHT-E9S-N.wrl
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

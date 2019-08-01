@@ -1,4 +1,4 @@
-update=7/31/2019 4:20:34 PM
+update=8/1/2019 4:37:11 PM
 version=1
 last_client=kicad
 [cvpcb]
@@ -12,7 +12,7 @@ LibDir=
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=Current_Source.net
+LastNetListRead=Slush01.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0

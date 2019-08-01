@@ -1,4 +1,4 @@
-14574841701477268
+14576406855519075
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (http://www.bulgin.com/media/bulgin/data/Battery_holders.pdf)
@@ -40739,34 +40739,6 @@ SMD SMT ceramic resonator filter filter hand-soldering
 0
 3
 3
-Current_Source
-90122-0128
-
-
-0
-16
-16
-Current_Source
-K202XHT-E9S-N
-
-
-0
-13
-10
-Current_Source
-SOP65P490X110-8N
-RM-8 (MSOP)
-Integrated Circuit
-0
-8
-8
-Current_Source
-SOT95P280X100-5N
-UJ-5 (TSOT)
-Integrated Circuit
-0
-5
-5
 Diode_SMD
 Diode_Bridge_Diotec_ABS
 SMD diode bridge ABS (Diotec), see https://diotec.com/tl_files/diotec/files/pdf/datasheets/abs2.pdf
@@ -61134,6 +61106,41 @@ Sensor_Voltage
 LEM_LV25-P
 LEM LV25-P Voltage transducer, https://www.lem.com/sites/default/files/products_datasheets/lv_25-p.pdf
 LEM Hall Effect Voltage transducer
+0
+5
+5
+Slush01
+90122-0128
+
+
+0
+16
+16
+Slush01
+K202XHT-E9S-N
+
+
+0
+13
+10
+Slush01
+MSOP-8
+RM-8 (MSOP)
+Integrated Circuit
+0
+8
+8
+Slush01
+SOIC-8
+8-Lead Plastic Small Outline (SN) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)
+SOIC 1.27
+0
+8
+8
+Slush01
+TSOT-23-5
+UJ-5 (TSOT)
+Integrated Circuit
 0
 5
 5
