@@ -1,0 +1,533 @@
+EESchema Schematic File Version 4
+LIBS:Windchill01-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:C C1
+U 1 1 5D4A2E2E
+P 3300 5250
+F 0 "C1" H 3415 5296 50  0000 L CNN
+F 1 "330p" H 3415 5205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 3338 5100 50  0001 C CNN
+F 3 "~" H 3300 5250 50  0001 C CNN
+	1    3300 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R11
+U 1 1 5D4A2E91
+P 3600 5250
+F 0 "R11" H 3668 5296 50  0000 L CNN
+F 1 "17k" H 3668 5205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 3640 5240 50  0001 C CNN
+F 3 "~" H 3600 5250 50  0001 C CNN
+	1    3600 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R4
+U 1 1 5D4A2F0D
+P 3600 4200
+F 0 "R4" H 3668 4246 50  0000 L CNN
+F 1 "1M" H 3668 4155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 3640 4190 50  0001 C CNN
+F 3 "~" H 3600 4200 50  0001 C CNN
+	1    3600 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R5
+U 1 1 5D4A2F9F
+P 3900 4200
+F 0 "R5" H 3968 4246 50  0000 L CNN
+F 1 "620k" H 3968 4155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 3940 4190 50  0001 C CNN
+F 3 "~" H 3900 4200 50  0001 C CNN
+	1    3900 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R12
+U 1 1 5D4A2FF1
+P 3900 5250
+F 0 "R12" H 3968 5296 50  0000 L CNN
+F 1 "360k" H 3968 5205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 3940 5240 50  0001 C CNN
+F 3 "~" H 3900 5250 50  0001 C CNN
+	1    3900 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R8
+U 1 1 5D4A3049
+P 5050 4900
+F 0 "R8" V 5050 4650 50  0000 C CNN
+F 1 "1k" V 5050 5100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5090 4890 50  0001 C CNN
+F 3 "~" H 5050 4900 50  0001 C CNN
+	1    5050 4900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R9
+U 1 1 5D4A30D0
+P 5050 5000
+F 0 "R9" V 5050 4750 50  0000 C CNN
+F 1 "10k" V 5050 5200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5090 4990 50  0001 C CNN
+F 3 "~" H 5050 5000 50  0001 C CNN
+	1    5050 5000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R10
+U 1 1 5D4A3116
+P 5050 5100
+F 0 "R10" V 5050 4850 50  0000 C CNN
+F 1 "100k" V 5050 5300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5090 5090 50  0001 C CNN
+F 3 "~" H 5050 5100 50  0001 C CNN
+	1    5050 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L Windchill01:LTC6702 U1
+U 1 1 5D4A3BB5
+P 4350 4500
+F 0 "U1" H 4400 4878 50  0000 C CNN
+F 1 "LTC6702" H 4400 4787 50  0000 C CNN
+F 2 "Windchill01:TSOT-23-8" H 4200 4750 50  0001 C CNN
+F 3 "" H 4200 4750 50  0001 C CNN
+	1    4350 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 4750 4050 4450
+Wire Wire Line
+	4050 4450 4100 4450
+Wire Wire Line
+	3900 4350 3900 4550
+Wire Wire Line
+	4100 4550 3900 4550
+Connection ~ 3900 4550
+Wire Wire Line
+	3900 4550 3900 5100
+Wire Wire Line
+	4100 5050 3600 5050
+Wire Wire Line
+	3600 5050 3600 4350
+Wire Wire Line
+	3600 5100 3600 5050
+Connection ~ 3600 5050
+Wire Wire Line
+	3300 5100 3300 4950
+Wire Wire Line
+	3300 4950 4100 4950
+Wire Wire Line
+	3300 5400 3300 5550
+Wire Wire Line
+	3900 5550 3900 5400
+Wire Wire Line
+	4400 4300 4400 3900
+Wire Wire Line
+	3600 3900 3600 4050
+$Comp
+L Windchill01:PIN_HEADER_2_3 U2
+U 1 1 5D4B25CE
+P 5550 5000
+F 0 "U2" H 5550 5273 50  0000 C CNN
+F 1 "PIN_HEADER_2_3" H 5550 5250 50  0001 C CNN
+F 2 "Windchill01:95278-101A06LF" H 5550 5250 50  0001 C CNN
+F 3 "" H 5550 5250 50  0001 C CNN
+	1    5550 5000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 5000 5300 5000
+Wire Wire Line
+	4850 5000 4850 4900
+Wire Wire Line
+	4850 4900 4900 4900
+Connection ~ 4850 5000
+Wire Wire Line
+	4850 5000 4900 5000
+Wire Wire Line
+	4850 5000 4850 5100
+Wire Wire Line
+	4850 5100 4900 5100
+Wire Wire Line
+	5200 4900 5300 4900
+Wire Wire Line
+	5200 5100 5300 5100
+Wire Wire Line
+	4400 5200 4400 5550
+Connection ~ 3900 5550
+Wire Wire Line
+	5800 4900 5850 4900
+Wire Wire Line
+	5850 4900 5850 5000
+Wire Wire Line
+	5850 5100 5800 5100
+Wire Wire Line
+	5800 5000 5850 5000
+Connection ~ 5850 5000
+Wire Wire Line
+	5850 5000 5850 5100
+$Comp
+L Device:C C2
+U 1 1 5D4B5C8B
+P 5950 5250
+F 0 "C2" H 6065 5296 50  0000 L CNN
+F 1 "1u" H 6065 5205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 5988 5100 50  0001 C CNN
+F 3 "~" H 5950 5250 50  0001 C CNN
+	1    5950 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 5000 5950 5000
+Wire Wire Line
+	5950 5000 5950 5100
+Wire Wire Line
+	5950 5400 5950 5550
+Wire Wire Line
+	5950 5550 4400 5550
+Connection ~ 4400 5550
+Wire Wire Line
+	5850 4750 5850 4900
+Connection ~ 5850 4900
+Wire Wire Line
+	4050 4750 5850 4750
+Wire Wire Line
+	4700 5000 4850 5000
+Wire Wire Line
+	3900 5550 4400 5550
+$Comp
+L Windchill01:C112640 J1
+U 1 1 5D4CD410
+P 7950 4050
+F 0 "J1" H 7981 4265 50  0000 C CNN
+F 1 "C112640" H 7981 4174 50  0000 C CNN
+F 2 "Windchill01:C112640" H 7950 4400 50  0001 C CNN
+F 3 "" H 7950 4400 50  0001 C CNN
+	1    7950 4050
+	1    0    0    -1  
+$EndComp
+Text GLabel 3200 4950 0    50   Input ~ 0
+sig
+$Comp
+L Windchill01:C112640 J2
+U 1 1 5D4D8004
+P 8450 4050
+F 0 "J2" H 8481 4265 50  0000 C CNN
+F 1 "C112640" H 8481 4174 50  0000 C CNN
+F 2 "Windchill01:C112640" H 8450 4400 50  0001 C CNN
+F 3 "" H 8450 4400 50  0001 C CNN
+	1    8450 4050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 5550 3000 5600
+$Comp
+L power:GND #PWR08
+U 1 1 5D4E1989
+P 3000 5600
+F 0 "#PWR08" H 3000 5350 50  0001 C CNN
+F 1 "GND" H 3005 5427 50  0000 C CNN
+F 2 "" H 3000 5600 50  0001 C CNN
+F 3 "" H 3000 5600 50  0001 C CNN
+	1    3000 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 3800 3000 3900
+$Comp
+L Device:R_US R6
+U 1 1 5D4E75C4
+P 7600 4500
+F 0 "R6" V 7500 4500 50  0000 C CNN
+F 1 "100k" V 7700 4500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 7640 4490 50  0001 C CNN
+F 3 "~" H 7600 4500 50  0001 C CNN
+	1    7600 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R7
+U 1 1 5D4E760E
+P 7900 4800
+F 0 "R7" H 8000 4850 50  0000 C CNN
+F 1 "72k" H 8000 4750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 7940 4790 50  0001 C CNN
+F 3 "~" H 7900 4800 50  0001 C CNN
+	1    7900 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 4500 7900 4500
+Wire Wire Line
+	7900 4500 7900 4650
+$Comp
+L Transistor_BJT:MMBT3904 Q2
+U 1 1 5D4F3F47
+P 8100 4500
+F 0 "Q2" H 8291 4546 50  0000 L CNN
+F 1 "MMBT3904" H 8291 4455 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8300 4425 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 8100 4500 50  0001 L CNN
+	1    8100 4500
+	1    0    0    -1  
+$EndComp
+Connection ~ 7900 4500
+Wire Wire Line
+	8350 4050 8200 4050
+Wire Wire Line
+	8200 4050 8200 4300
+Wire Wire Line
+	8200 4050 8050 4050
+Connection ~ 8200 4050
+Text GLabel 8200 3900 1    50   Input ~ 0
+sig
+Wire Wire Line
+	8200 3900 8200 4050
+Connection ~ 3300 5550
+Wire Wire Line
+	3300 4950 3200 4950
+Connection ~ 3300 4950
+Wire Wire Line
+	7950 4150 7950 4200
+Wire Wire Line
+	8450 4150 8450 4200
+$Comp
+L power:GND #PWR05
+U 1 1 5D4FCD4B
+P 7950 4200
+F 0 "#PWR05" H 7950 3950 50  0001 C CNN
+F 1 "GND" H 7955 4027 50  0000 C CNN
+F 2 "" H 7950 4200 50  0001 C CNN
+F 3 "" H 7950 4200 50  0001 C CNN
+	1    7950 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 5D4FCD8F
+P 8450 4200
+F 0 "#PWR06" H 8450 3950 50  0001 C CNN
+F 1 "GND" H 8455 4027 50  0000 C CNN
+F 2 "" H 8450 4200 50  0001 C CNN
+F 3 "" H 8450 4200 50  0001 C CNN
+	1    8450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Windchill01:Battery_Holder J3
+U 1 1 5D500EB0
+P 3000 4300
+F 0 "J3" H 3118 4300 50  0000 L CNN
+F 1 "Battery_Holder" H 3000 4650 50  0001 C CNN
+F 2 "Windchill01:1023" H 2850 4300 50  0001 C CNN
+F 3 "" H 2850 4300 50  0001 C CNN
+	1    3000 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 4250 3000 4350
+Wire Wire Line
+	3000 3950 3000 3900
+$Comp
+L power:VDD #PWR03
+U 1 1 5D4FCF13
+P 3000 3800
+F 0 "#PWR03" H 3000 3650 50  0001 C CNN
+F 1 "VDD" H 3017 3973 50  0000 C CNN
+F 2 "" H 3000 3800 50  0001 C CNN
+F 3 "" H 3000 3800 50  0001 C CNN
+	1    3000 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q1
+U 1 1 5D4CA987
+P 6200 4500
+F 0 "Q1" H 6391 4546 50  0000 L CNN
+F 1 "MMBT3904" H 6391 4455 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6400 4425 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 6200 4500 50  0001 L CNN
+	1    6200 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R1
+U 1 1 5D4CAA64
+P 6050 4200
+F 0 "R1" V 5950 4200 50  0000 C CNN
+F 1 "1k" V 6150 4200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 6090 4190 50  0001 C CNN
+F 3 "~" H 6050 4200 50  0001 C CNN
+	1    6050 4200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R2
+U 1 1 5D4CAAD0
+P 6550 4200
+F 0 "R2" V 6450 4200 50  0000 C CNN
+F 1 "100k" V 6650 4200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 6590 4190 50  0001 C CNN
+F 3 "~" H 6550 4200 50  0001 C CNN
+	1    6550 4200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6200 4200 6300 4200
+Wire Wire Line
+	6300 4200 6300 4300
+Connection ~ 6300 4200
+Wire Wire Line
+	6300 4200 6400 4200
+Wire Wire Line
+	6700 4200 6850 4200
+Wire Wire Line
+	5900 4200 5750 4200
+$Comp
+L power:GND #PWR02
+U 1 1 5D4CEB04
+P 6850 4200
+F 0 "#PWR02" H 6850 3950 50  0001 C CNN
+F 1 "GND" H 6855 4027 50  0000 C CNN
+F 2 "" H 6850 4200 50  0001 C CNN
+F 3 "" H 6850 4200 50  0001 C CNN
+	1    6850 4200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:VDD #PWR01
+U 1 1 5D4CEC27
+P 5750 4200
+F 0 "#PWR01" H 5750 4050 50  0001 C CNN
+F 1 "VDD" H 5767 4373 50  0000 C CNN
+F 2 "" H 5750 4200 50  0001 C CNN
+F 3 "" H 5750 4200 50  0001 C CNN
+	1    5750 4200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_US R3
+U 1 1 5D4CED86
+P 5750 4500
+F 0 "R3" V 5650 4500 50  0000 C CNN
+F 1 "100k" V 5850 4500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" V 5790 4490 50  0001 C CNN
+F 3 "~" H 5750 4500 50  0001 C CNN
+	1    5750 4500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5900 4500 6000 4500
+Wire Wire Line
+	5600 4500 5400 4500
+Text GLabel 5400 4500 0    50   Input ~ 0
+OUTB
+Wire Wire Line
+	6300 4700 6300 4800
+Text GLabel 6300 4800 3    50   Input ~ 0
+-INA
+Text Label 4100 4450 2    50   ~ 0
++INA
+Text Label 4100 4550 2    50   ~ 0
+-INA
+Text Label 4700 5000 2    50   ~ 0
+OUTB
+Wire Wire Line
+	3300 5550 3600 5550
+Wire Wire Line
+	3600 5400 3600 5550
+Connection ~ 3600 5550
+Wire Wire Line
+	3600 5550 3900 5550
+Text Label 4100 5050 2    50   ~ 0
+-INB
+Wire Wire Line
+	3600 3900 4400 3900
+Wire Wire Line
+	3900 4050 3900 3800
+Text GLabel 3900 3800 1    50   Input ~ 0
+Vdiv
+Text GLabel 6300 4100 1    50   Input ~ 0
+Vdiv
+Text Label 7900 4500 2    50   ~ 0
+Vbe2
+Text Label 6000 4500 2    50   ~ 0
+Vbe1
+Text Label 5300 4900 2    50   ~ 0
+1ms
+Text Label 5300 5000 2    50   ~ 0
+10ms
+Text Label 5300 5100 2    50   ~ 0
+100ms
+$Comp
+L Device:C C3
+U 1 1 5D4D811C
+P 4650 3900
+F 0 "C3" H 4765 3946 50  0000 L CNN
+F 1 "1u" H 4765 3855 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 4688 3750 50  0001 C CNN
+F 3 "~" H 4650 3900 50  0001 C CNN
+	1    4650 3900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4500 3900 4400 3900
+Connection ~ 4400 3900
+Wire Wire Line
+	4800 3900 4900 3900
+$Comp
+L power:GND #PWR0101
+U 1 1 5D4DAABB
+P 4900 3900
+F 0 "#PWR0101" H 4900 3650 50  0001 C CNN
+F 1 "GND" H 4905 3727 50  0000 C CNN
+F 2 "" H 4900 3900 50  0001 C CNN
+F 3 "" H 4900 3900 50  0001 C CNN
+	1    4900 3900
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3000 3900
+Wire Wire Line
+	3000 3900 3600 3900
+Connection ~ 3600 3900
+Wire Wire Line
+	3000 5550 3300 5550
+Wire Wire Line
+	3000 4650 3000 5550
+Connection ~ 3000 5550
+Text GLabel 4750 4500 2    50   Input ~ 0
+OUTA
+Wire Wire Line
+	4700 4500 4750 4500
+Text GLabel 7400 4500 0    50   Input ~ 0
+OUTA
+Wire Wire Line
+	7400 4500 7450 4500
+Wire Wire Line
+	8200 4700 8200 5000
+Wire Wire Line
+	8200 5000 7900 5000
+Wire Wire Line
+	7900 5000 7900 4950
+Wire Wire Line
+	6300 4100 6300 4200
+$EndSCHEMATC

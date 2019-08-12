@@ -1,0 +1,35 @@
+* C:\Users\dmo2\Documents\GitHub\nist\KiCAD\Windchill01\Windchill01.asc
+C2 RC 0 1µ
+R1 COM 50mV 1Meg
+R2-3 50mV 0 17k
+Vcc COM 0 3
+R3 N001 0.368Vcc 620k
+R4 0.368Vcc 0 360k
+R5 OUTB RC 100k
+XU1 sig 50mV COM 0 OUTB LTC6702
+XU2 RC 0.368Vcc COM 0 OUTA LTC6702
+Q1 sig N002 0 0 DI_MMBT3904
+R2 OUTA N002 10k
+V1 N003 0 140m
+R7 N003 sig 1Meg
+C3 sig 0 100n
+R6 sig 0 1Meg
+Q2 N001 OUTB 0.368Vcc 0 DI_MMBT3904
+R9 COM N001 1k
+R10 N001 0 100k
+D1 OUTA 0 D
+.model D D
+.lib C:\Program Files (x86)\LTC\LTspiceIV\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Program Files (x86)\LTC\LTspiceIV\lib\cmp\standard.bjt
+.tran 1 startup
+.MODEL DI_MMBT3904 NPN(IS=48.3f NF=1.00 BF=410 VAF=114
++ IKF=0.121 ISE=13.1p NE=2.00 BR=4.00 NR=1.00
++ VAR=24.0 IKR=0.300 RE=2.63 RB=10.5 RC=1.05
++ XTB=1.5 CJE=9.67p VJE=1.10 MJE=0.500 CJC=8.70p VJC=0.300
++ MJC=0.300 TF=440p TR=74.7n EG=1.12 )
+.ic V(sig)=0
+.lib LTC3.lib
+.backanno
+.end
