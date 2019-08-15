@@ -1,0 +1,29 @@
+Item #,Ref Des,Qty [individual],Cost per unit,Manufacturer,Mfg part #,Description,Package,Type,Notes,Website URL
+1,"J1, J2",2, $5.13 ,Amphenol RF,C112640,BNC Jack,C112640,SMD,,https://www.digikey.com/product-detail/en/112640/ACX2259-ND/3995580/?itemSeq=300628511
+2,J3,1, $3.84 ,Keystone Electronics,Battery_Holder,AAA battery holder 2 cell,1023,THM,,https://www.digikey.com/product-detail/en/1023/36-1023-ND/2745667/?itemSeq=300279563
+3,J4,1, $1.44 ,Amphenol ICC,95278-101A14LF,Conn header 14-pin,95278-101A14LF,SMD,,https://www.digikey.com/product-detail/en/95278-101A14LF/609-3485-1-ND/2044023/?itemSeq=300771173
+4,U1,1, $9.72 ,Panasonic Electric Works,AQY221R6V,SSR relay,SSOP-4,SMD,,https://www.digikey.com/product-detail/en/AQY221R6V/255-5279-ND/5817725/?itemSeq=300899885
+5,U2,1, $2.86 ,Analog Devices,LTC6702ITS8#TRMPBF,Comparator,TSOT-23-8,SMD,,https://www.digikey.com/product-detail/en/LTC6702ITS8%23TRMPBF/LTC6702ITS8%23TRMPBFDKR-ND/1965198/?itemSeq=300624445
+6,D1,1, $0.26 ,Lite-On Incorporated,LTST-C190KGKT,Green LED,0603 (1608 Metric),SMD,,https://www.digikey.com/product-detail/en/lite-on-inc/LTST-C190KGKT/160-1435-1-ND/386814
+7,"Q1, Q2",2, $0.12 ,Diodes Incorporated,MMBT3904-7-F,NPN transistor,SOT-23,SMD,,https://www.digikey.com/product-detail/en/MMBT3904-7-F/MMBT3904-FDICT-ND/815727/?itemSeq=300279620
+8,C1,1, $0.10 ,Yageo,CC0402KRX7R8BB103,10nF,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/CC0402KRX7R8BB103/311-1337-1-ND/2103121
+9,"C2, C4",2, $0.10 ,Yageo,CC0402KRX5R5BB105,1uF,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/CC0402KRX5R5BB105/311-1438-1-ND/2833744
+10,C3,1, $0.10 ,Yageo,CC0402JRNPO9BN100,10pF,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/CC0402JRNPO9BN100/311-1014-1-ND/302931
+11,R1,1, $0.10 ,Yageo,RC0402FR-071K8L,1.8k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-071K8L/311-1.80KLRCT-ND/729467
+12,R2,1, $0.10 ,Yageo,RC0402FR-071ML,1M,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-071ML/311-1.00MLRCT-ND/729462
+13,R3,1, $0.10 ,Yageo,RC0402JR-076M2L,6.2M,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402JR-076M2L/YAG3309CT-ND/5282175
+14,"R4, R9, R11",3, $0.10 ,Yageo,RC0402FR-07100KL,100k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07100KL/311-100KLRCT-ND/729473
+15,R5,1, $0.10 ,Yageo,RC0402FR-07100RL,100,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07100RL/311-100LRCT-ND/729474
+16,R6,1, $0.10 ,Yageo,RC0402FR-0710KL,10k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0710KL/311-10.0KLRCT-ND/729470
+17,R7,1, $0.10 ,Yageo,RC0402FR-07499KL,499k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07499KL/311-499KLRCT-ND/729569
+18,R8,1, $0.10 ,Yageo,RC0402FR-07180KL,180k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07180KL/311-180KLRCT-ND/729496
+19,R10,1, $0.10 ,Yageo,RC0402FR-0780K6L,80.6k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0780K6L/311-80.6KLRCT-ND/729611
+20,R12,1, $0.10 ,Yageo,RC0402FR-07332RL,332,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07332RL/311-332LRCT-ND/729543
+21,R13,1, $0.10 ,Yageo,RC0402FR-074K02L,4.02k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-074K02L/311-4.02KLRCT-ND/2827912
+22,R14,1, $0.10 ,Yageo,RC0402FR-07102KL,102k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-07102KL/YAG2944CT-ND/5281809
+23,R15,1, $0.10 ,Yageo,RC0402FR-073K4L,3.4k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-073K4L/YAG3149CT-ND/5282014
+24,R16,1, $0.10 ,Yageo,RC0402FR-0760K4L,60.4k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0760K4L/311-60.4KLRCT-ND/729590
+25,R17,1, $0.10 ,Yageo,RC0402FR-076K8L,6.8k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-076K8L/311-6.80KLRCT-ND/729589
+26,R18,1, $0.10 ,Yageo,RC0402FR-0713K7L,13.7k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0713K7L/311-13.7KLRCT-ND/2827955
+27,R19,1, $0.10 ,Yageo,RC0402FR-0727K4L,27.4k,0402 (1005 Metric),SMD,,https://www.digikey.com/product-detail/en/yageo/RC0402FR-0727K4L/311-27.4KLRCT-ND/2827905
+,,32, $30.92 ,,,,,,,
