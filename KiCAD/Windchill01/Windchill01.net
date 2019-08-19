@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Users\dmo2\Documents\GitHub\nist\KiCAD\Windchill01\Windchill01.sch)
-    (date "8/15/2019 4:09:09 PM")
+    (date "8/19/2019 1:41:23 PM")
     (tool "Eeschema (5.1.4)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -232,7 +232,13 @@
       (footprint Windchill01:AQY221R6V)
       (libsource (lib Windchill01) (part AQY221R6V) (description ""))
       (sheetpath (names /) (tstamps /))
-      (tstamp 5D6168FB)))
+      (tstamp 5D6168FB))
+    (comp (ref G1)
+      (value Wind_Graphic)
+      (footprint Windchill01:wind)
+      (libsource (lib Windchill01) (part Wind_Graphic) (description ""))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 5D5BAF4A)))
   (libparts
     (libpart (lib Device) (part C)
       (description "Unpolarized capacitor")
@@ -347,7 +353,11 @@
         (pin (num 5) (name +INB) (type input))
         (pin (num 6) (name -INB) (type input))
         (pin (num 7) (name OUTB) (type output))
-        (pin (num 8) (name ~) (type power_in)))))
+        (pin (num 8) (name ~) (type power_in))))
+    (libpart (lib Windchill01) (part Wind_Graphic)
+      (fields
+        (field (name Reference) G)
+        (field (name Value) Wind_Graphic))))
   (libraries
     (library (logical Device)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library/Device.lib"))

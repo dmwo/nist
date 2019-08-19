@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:Windchill01-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -820,4 +819,15 @@ Text GLabel 4850 2300 0    50   Input ~ 0
 RELAY+
 Text GLabel 4850 2500 0    50   Input ~ 0
 RELAY-
+$Comp
+L Windchill01:Wind_Graphic G1
+U 1 1 5D5BAF4A
+P 6450 3250
+F 0 "G1" H 6475 3296 50  0000 L CNN
+F 1 "Wind_Graphic" H 6475 3205 50  0000 L CNN
+F 2 "Windchill01:wind" H 6450 3250 50  0001 C CNN
+F 3 "" H 6450 3250 50  0001 C CNN
+	1    6450 3250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
