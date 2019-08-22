@@ -290,7 +290,7 @@ class Agilent89410a:
         return ret
 
 def plot(x, y):
-    plt.plot(x[1], y[1])
+    plt.semilogy(x[1], y[1])
     
     # Titling and labelling
     plt.title('Power Spectral Density')
@@ -320,9 +320,10 @@ def impedance_plot(R, C, x, y):
     
 try: sa.close()
 except: pass
-sa = Agilent89410a(visa_name = 'GPIB0::19::INSTR')
+sa = Agilent89410a(visa_name = 'COM13')
 sa.identify() # The spectrum analyzer should respond now
 
+#%%
 if res_meas:
     x = sa.get_x_data()
     y = sa.get_y_data()
