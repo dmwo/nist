@@ -21,10 +21,11 @@ class PNPRack:
         """
 
         # Declaring variables
-        self.slot_DAC = (1,3) # DAC PNP slot
-        self.slot_ADC = (2,3) # ADC PNP slot
-        self.addr_DAC = 0x60  # DAC I2C address
-        self.addr_ADC = 0x14  # ADC I2C address
+        self.slot_DAC = (1,3)  # DAC PNP slot
+        self.slot_ADC = (2,3)  # ADC PNP slot
+        self.addr_DAC = 0x60   # DAC I2C address
+        self.addr_ADC = 0x14   # ADC I2C address
+        self.addr_Slush = 0x90 # Slush I2C address
         self.timeout  = 5     # Response timeout [sec]
 
         # Initialising Arduino as a serial object with matching baud 19200
@@ -71,8 +72,11 @@ class PNPRack:
         """
 
         # Writing message in an Arduino-interpretable format
-        msg = 'w{0}{1}\n'.format(chr(addr),
+        try:
+            msg = 'w{0}{1}\n'.format(chr(addr),
                                  ''.join([chr(b) for b in data]))
+        except:
+            msg = 'w{0}{1}\n'.format(chr(addr), chr(data))
         self.write(msg)
         self.read()
 
@@ -191,6 +195,39 @@ class PNPRack:
         print('The integer ADC value is: {}'.format(str(out)))
         print('The ADC voltage is: {} V'.format(str(round(volt, 3))))
         # return volt
+        
+    def readSlush(self, slot = None, mode = 'single', channel = 0):
+        """
+        
+        """
+        
+        if not slot: slot = self.slot_ADC
+        self.setSlot(slot)
+        
+        # Configuring the ADS1115
+        config_addr  = 0x01
+        
+        if   mode == 'single':     config_upper = 0x01
+        elif mode == 'continuous': config_upper = 0x00
+        else: raise Exception("Mode must be 'single' or 'continuous'")
+        
+        if   channel == 0: config_upper |= 0x40
+        elif channel == 1: config_upper |= 0x50
+        elif channel == 2: config_upper |= 0x60
+        elif channel == 3: config_upper |= 0x70
+        else: raise ValueError('Channel must be in [0,3]')
+        
+        config_lower = 0x83
+        
+        self.writeBytes(self.addr_Slush,
+                        (config_addr, config_upper, config_lower))
+        
+        # Reading the voltage from the ADS1115
+        convert_addr = 0x00
+        
+        self.writeBytes(self.addr_Slush | 0x01, convert_addr)
+        data = self.readBytes(self.addr_Slush, 2)
+        return data
 
 port = 'COM11'
 try: pnp.close()
