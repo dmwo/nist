@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Slush02)(type Legacy)(uri ${KIPRJMOD}/Slush02.lib)(options "")(descr ""))
+)
