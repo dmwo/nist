@@ -22,10 +22,10 @@ class PNPRack:
 
         # Declaring variables
         self.slot_DAC = (1,3)  # DAC PNP slot
-        self.slot_ADC = (2,3)  # ADC PNP slot
+        self.slot_ADC = (1,3)  # ADC PNP slot
         self.addr_DAC = 0x60   # DAC I2C address
         self.addr_ADC = 0x14   # ADC I2C address
-        self.addr_Slush = 0x90 # Slush I2C address
+        self.addr_Slush = 0x48 # Slush I2C address
         self.timeout  = 5     # Response timeout [sec]
 
         # Initialising Arduino as a serial object with matching baud 19200
@@ -215,21 +215,24 @@ class PNPRack:
         elif channel == 1: config_upper |= 0x50
         elif channel == 2: config_upper |= 0x60
         elif channel == 3: config_upper |= 0x70
-        else: raise ValueError('Channel must be in [0,3]')
+        else: raise ValueError('Channel must be an integer in [0,3]')
         
         config_lower = 0x83
         
-        self.writeBytes(self.addr_Slush,
-                        (config_addr, config_upper, config_lower))
+        self.writeBytes(self.addr_Slush, 0x90)
+        self.writeBytes(self.addr_Slush, config_addr)
+        self.writeBytes(self.addr_Slush, config_upper)
+        self.writeBytes(self.addr_Slush, config_lower)
         
         # Reading the voltage from the ADS1115
         convert_addr = 0x00
         
-        self.writeBytes(self.addr_Slush | 0x01, convert_addr)
+        self.writeBytes(self.addr_Slush, 0x91)
+        self.writeBytes(self.addr_Slush, convert_addr)
         data = self.readBytes(self.addr_Slush, 2)
         return data
 
-port = 'COM11'
+port = 'COM6'
 try: pnp.close()
 except: pass
 pnp = PNPRack(port)
