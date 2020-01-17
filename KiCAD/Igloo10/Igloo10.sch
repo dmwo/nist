@@ -13,63 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Igloo10:LSHM-110-01-L-RH-A-S-TR J1
-U 1 1 5E1FE2A2
-P 5750 3500
-F 0 "J1" H 5750 4625 50  0000 C CNN
-F 1 "LSHM-110-01-L-RH-A-S-TR" H 5750 4534 50  0000 C CNN
-F 2 "Igloo10:LSHM-110-01-L-RH-A-S-TR" H 5750 4550 50  0001 C CNN
-F 3 "" H 5750 4550 50  0001 C CNN
-	1    5750 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6000 2600 6050 2600
-Wire Wire Line
-	6050 2600 6050 2800
-Wire Wire Line
-	6050 2800 6000 2800
-Wire Wire Line
-	6050 2800 6050 3000
-Wire Wire Line
-	6050 3000 6000 3000
-Connection ~ 6050 2800
-Wire Wire Line
-	6050 3000 6050 3200
-Wire Wire Line
-	6050 3200 6000 3200
-Connection ~ 6050 3000
-Wire Wire Line
-	6050 3200 6050 3400
-Wire Wire Line
-	6050 3400 6000 3400
-Connection ~ 6050 3200
-Wire Wire Line
-	6050 3400 6050 3600
-Wire Wire Line
-	6050 3600 6000 3600
-Connection ~ 6050 3400
-Wire Wire Line
-	6050 3600 6050 3800
-Wire Wire Line
-	6050 3800 6000 3800
-Connection ~ 6050 3600
-Wire Wire Line
-	6050 3800 6050 4000
-Wire Wire Line
-	6050 4000 6000 4000
-Connection ~ 6050 3800
-Wire Wire Line
-	6050 4000 6050 4200
-Wire Wire Line
-	6050 4200 6000 4200
-Connection ~ 6050 4000
-Wire Wire Line
-	6050 4200 6050 4400
-Wire Wire Line
-	6050 4400 6000 4400
-Connection ~ 6050 4200
 Wire Wire Line
 	5500 2600 5450 2600
 Wire Wire Line
@@ -173,329 +116,39 @@ Wire Wire Line
 Wire Wire Line
 	5750 4700 5750 4650
 Connection ~ 5450 4500
-Wire Wire Line
-	6050 4400 6050 4700
-Wire Wire Line
-	6050 4700 5750 4700
-Connection ~ 6050 4400
 Connection ~ 5750 4700
 $Comp
 L Igloo10:TEST_PAD U1
 U 1 1 5E20D54C
-P 6550 3600
-F 0 "U1" H 6422 3559 50  0000 R CNN
-F 1 "TEST_PAD" H 6422 3650 50  0000 R CNN
-F 2 "Igloo10:TEST_PAD" H 6550 4150 50  0001 C CNN
-F 3 "" H 6550 4150 50  0001 C CNN
-	1    6550 3600
+P 6550 3500
+F 0 "U1" H 6422 3459 50  0000 R CNN
+F 1 "TEST_PAD" H 6422 3550 50  0000 R CNN
+F 2 "Igloo10:TEST_PAD" H 6550 4050 50  0001 C CNN
+F 3 "" H 6550 4050 50  0001 C CNN
+	1    6550 3500
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	6000 4500 6300 4500
+	6300 4400 6300 3950
 Wire Wire Line
-	6300 4500 6300 4050
+	6300 3950 6350 3950
 Wire Wire Line
-	6300 4050 6350 4050
+	6250 4200 6250 3850
 Wire Wire Line
-	6000 4300 6250 4300
+	6250 3850 6350 3850
 Wire Wire Line
-	6250 4300 6250 3950
+	6250 2800 6250 3150
 Wire Wire Line
-	6250 3950 6350 3950
+	6250 3150 6350 3150
 Wire Wire Line
-	6000 4100 6200 4100
+	6300 2600 6300 3050
 Wire Wire Line
-	6200 4100 6200 3850
-Wire Wire Line
-	6200 3850 6350 3850
-Wire Wire Line
-	6000 3900 6150 3900
-Wire Wire Line
-	6150 3900 6150 3750
-Wire Wire Line
-	6150 3750 6350 3750
-Wire Wire Line
-	6000 3700 6100 3700
-Wire Wire Line
-	6100 3700 6100 3650
-Wire Wire Line
-	6100 3650 6350 3650
-Wire Wire Line
-	6000 3500 6100 3500
-Wire Wire Line
-	6100 3500 6100 3550
-Wire Wire Line
-	6100 3550 6350 3550
-Wire Wire Line
-	6000 3300 6150 3300
-Wire Wire Line
-	6150 3300 6150 3450
-Wire Wire Line
-	6150 3450 6350 3450
-Wire Wire Line
-	6000 3100 6200 3100
-Wire Wire Line
-	6200 3100 6200 3350
-Wire Wire Line
-	6200 3350 6350 3350
-Wire Wire Line
-	6000 2900 6250 2900
-Wire Wire Line
-	6250 2900 6250 3250
-Wire Wire Line
-	6250 3250 6350 3250
-Wire Wire Line
-	6000 2700 6300 2700
-Wire Wire Line
-	6300 2700 6300 3150
-Wire Wire Line
-	6300 3150 6350 3150
+	6300 3050 6350 3050
 $Comp
-L Igloo10:LSHM-110-01-L-RH-A-S-TR J2
-U 1 1 5E227DB7
-P 7450 3500
-F 0 "J2" H 7450 4625 50  0000 C CNN
-F 1 "LSHM-110-01-L-RH-A-S-TR" H 7450 4534 50  0000 C CNN
-F 2 "Igloo10:LSHM-110-01-L-RH-A-S-TR" H 7450 4550 50  0001 C CNN
-F 3 "" H 7450 4550 50  0001 C CNN
-	1    7450 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7700 2600 7750 2600
-Wire Wire Line
-	7750 2600 7750 2800
-Wire Wire Line
-	7750 2800 7700 2800
-Wire Wire Line
-	7750 2800 7750 3000
-Wire Wire Line
-	7750 3000 7700 3000
-Connection ~ 7750 2800
-Wire Wire Line
-	7750 3000 7750 3200
-Wire Wire Line
-	7750 3200 7700 3200
-Connection ~ 7750 3000
-Wire Wire Line
-	7750 3200 7750 3400
-Wire Wire Line
-	7750 3400 7700 3400
-Connection ~ 7750 3200
-Wire Wire Line
-	7750 3400 7750 3600
-Wire Wire Line
-	7750 3600 7700 3600
-Connection ~ 7750 3400
-Wire Wire Line
-	7750 3600 7750 3800
-Wire Wire Line
-	7750 3800 7700 3800
-Connection ~ 7750 3600
-Wire Wire Line
-	7750 3800 7750 4000
-Wire Wire Line
-	7750 4000 7700 4000
-Connection ~ 7750 3800
-Wire Wire Line
-	7750 4000 7750 4200
-Wire Wire Line
-	7750 4200 7700 4200
-Connection ~ 7750 4000
-Wire Wire Line
-	7750 4200 7750 4400
-Wire Wire Line
-	7750 4400 7700 4400
-Connection ~ 7750 4200
-Wire Wire Line
-	7200 2600 7150 2600
-Wire Wire Line
-	7150 2600 7150 2700
-Wire Wire Line
-	7150 2700 7200 2700
-Wire Wire Line
-	7150 2700 7150 2800
-Wire Wire Line
-	7150 2800 7200 2800
-Connection ~ 7150 2700
-Wire Wire Line
-	7150 2800 7150 2900
-Wire Wire Line
-	7150 4500 7200 4500
-Connection ~ 7150 2800
-Wire Wire Line
-	7200 4400 7150 4400
-Connection ~ 7150 4400
-Wire Wire Line
-	7150 4400 7150 4500
-Wire Wire Line
-	7200 4300 7150 4300
-Connection ~ 7150 4300
-Wire Wire Line
-	7150 4300 7150 4400
-Wire Wire Line
-	7200 4200 7150 4200
-Connection ~ 7150 4200
-Wire Wire Line
-	7150 4200 7150 4300
-Wire Wire Line
-	7200 4100 7150 4100
-Connection ~ 7150 4100
-Wire Wire Line
-	7150 4100 7150 4200
-Wire Wire Line
-	7200 4000 7150 4000
-Connection ~ 7150 4000
-Wire Wire Line
-	7150 4000 7150 4100
-Wire Wire Line
-	7200 3900 7150 3900
-Connection ~ 7150 3900
-Wire Wire Line
-	7150 3900 7150 4000
-Wire Wire Line
-	7200 3800 7150 3800
-Connection ~ 7150 3800
-Wire Wire Line
-	7150 3800 7150 3900
-Wire Wire Line
-	7200 3700 7150 3700
-Connection ~ 7150 3700
-Wire Wire Line
-	7150 3700 7150 3800
-Wire Wire Line
-	7200 3600 7150 3600
-Connection ~ 7150 3600
-Wire Wire Line
-	7150 3600 7150 3700
-Wire Wire Line
-	7200 3500 7150 3500
-Connection ~ 7150 3500
-Wire Wire Line
-	7150 3500 7150 3600
-Wire Wire Line
-	7200 3400 7150 3400
-Connection ~ 7150 3400
-Wire Wire Line
-	7150 3400 7150 3500
-Wire Wire Line
-	7200 3300 7150 3300
-Connection ~ 7150 3300
-Wire Wire Line
-	7150 3300 7150 3400
-Wire Wire Line
-	7200 3200 7150 3200
-Connection ~ 7150 3200
-Wire Wire Line
-	7150 3200 7150 3300
-Wire Wire Line
-	7200 3100 7150 3100
-Connection ~ 7150 3100
-Wire Wire Line
-	7150 3100 7150 3200
-Wire Wire Line
-	7200 3000 7150 3000
-Connection ~ 7150 3000
-Wire Wire Line
-	7150 3000 7150 3100
-Wire Wire Line
-	7200 2900 7150 2900
-Connection ~ 7150 2900
-Wire Wire Line
-	7150 2900 7150 3000
-Wire Wire Line
-	7150 4500 7150 4700
-Wire Wire Line
-	7150 4700 7450 4700
-Wire Wire Line
-	7450 4700 7450 4650
-Connection ~ 7150 4500
-Wire Wire Line
-	7750 4400 7750 4700
-Wire Wire Line
-	7750 4700 7450 4700
-Connection ~ 7750 4400
-Connection ~ 7450 4700
-$Comp
-L Igloo10:TEST_PAD U2
-U 1 1 5E227E19
-P 8250 3600
-F 0 "U2" H 8122 3559 50  0000 R CNN
-F 1 "TEST_PAD" H 8122 3650 50  0000 R CNN
-F 2 "Igloo10:TEST_PAD" H 8250 4150 50  0001 C CNN
-F 3 "" H 8250 4150 50  0001 C CNN
-	1    8250 3600
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	7700 4500 8000 4500
-Wire Wire Line
-	8000 4500 8000 4050
-Wire Wire Line
-	8000 4050 8050 4050
-Wire Wire Line
-	7700 4300 7950 4300
-Wire Wire Line
-	7950 4300 7950 3950
-Wire Wire Line
-	7950 3950 8050 3950
-Wire Wire Line
-	7700 4100 7900 4100
-Wire Wire Line
-	7900 4100 7900 3850
-Wire Wire Line
-	7900 3850 8050 3850
-Wire Wire Line
-	7700 3900 7850 3900
-Wire Wire Line
-	7850 3900 7850 3750
-Wire Wire Line
-	7850 3750 8050 3750
-Wire Wire Line
-	7700 3700 7800 3700
-Wire Wire Line
-	7800 3700 7800 3650
-Wire Wire Line
-	7800 3650 8050 3650
-Wire Wire Line
-	7700 3500 7800 3500
-Wire Wire Line
-	7800 3500 7800 3550
-Wire Wire Line
-	7800 3550 8050 3550
-Wire Wire Line
-	7700 3300 7850 3300
-Wire Wire Line
-	7850 3300 7850 3450
-Wire Wire Line
-	7850 3450 8050 3450
-Wire Wire Line
-	7700 3100 7900 3100
-Wire Wire Line
-	7900 3100 7900 3350
-Wire Wire Line
-	7900 3350 8050 3350
-Wire Wire Line
-	7700 2900 7950 2900
-Wire Wire Line
-	7950 2900 7950 3250
-Wire Wire Line
-	7950 3250 8050 3250
-Wire Wire Line
-	7700 2700 8000 2700
-Wire Wire Line
-	8000 2700 8000 3150
-Wire Wire Line
-	8000 3150 8050 3150
-Wire Wire Line
-	7150 4700 6050 4700
-Connection ~ 7150 4700
-Connection ~ 6050 4700
-$Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 5E2433C0
 P 5450 4750
-F 0 "#PWR?" H 5450 4500 50  0001 C CNN
+F 0 "#PWR0101" H 5450 4500 50  0001 C CNN
 F 1 "GND" H 5455 4577 50  0000 C CNN
 F 2 "" H 5450 4750 50  0001 C CNN
 F 3 "" H 5450 4750 50  0001 C CNN
@@ -505,4 +158,351 @@ $EndComp
 Wire Wire Line
 	5450 4750 5450 4700
 Connection ~ 5450 4700
+Wire Wire Line
+	5750 4700 6050 4700
+Wire Wire Line
+	6000 2600 6300 2600
+Wire Wire Line
+	6000 2800 6250 2800
+Wire Wire Line
+	6000 3000 6200 3000
+Wire Wire Line
+	6200 3000 6200 3250
+Wire Wire Line
+	6200 3250 6350 3250
+Wire Wire Line
+	6000 3200 6150 3200
+Wire Wire Line
+	6150 3200 6150 3350
+Wire Wire Line
+	6150 3350 6350 3350
+Wire Wire Line
+	6000 3400 6100 3400
+Wire Wire Line
+	6100 3400 6100 3450
+Wire Wire Line
+	6100 3450 6350 3450
+Wire Wire Line
+	6000 3600 6100 3600
+Wire Wire Line
+	6100 3600 6100 3550
+Wire Wire Line
+	6100 3550 6350 3550
+Wire Wire Line
+	6000 3800 6150 3800
+Wire Wire Line
+	6150 3800 6150 3650
+Wire Wire Line
+	6150 3650 6350 3650
+Wire Wire Line
+	6000 4000 6200 4000
+Wire Wire Line
+	6200 4000 6200 3750
+Wire Wire Line
+	6200 3750 6350 3750
+Wire Wire Line
+	6000 4200 6250 4200
+Wire Wire Line
+	6000 4400 6300 4400
+Wire Wire Line
+	6000 2700 6050 2700
+Wire Wire Line
+	6050 2700 6050 2900
+Wire Wire Line
+	6050 4500 6000 4500
+Wire Wire Line
+	6050 4300 6000 4300
+Connection ~ 6050 4300
+Wire Wire Line
+	6050 4300 6050 4500
+Wire Wire Line
+	6050 4100 6000 4100
+Connection ~ 6050 4100
+Wire Wire Line
+	6050 4100 6050 4300
+Wire Wire Line
+	6050 3900 6000 3900
+Connection ~ 6050 3900
+Wire Wire Line
+	6050 3900 6050 4100
+Wire Wire Line
+	6050 3700 6000 3700
+Connection ~ 6050 3700
+Wire Wire Line
+	6050 3700 6050 3900
+Wire Wire Line
+	6050 3500 6000 3500
+Connection ~ 6050 3500
+Wire Wire Line
+	6050 3500 6050 3700
+Wire Wire Line
+	6050 3300 6000 3300
+Connection ~ 6050 3300
+Wire Wire Line
+	6050 3300 6050 3500
+Wire Wire Line
+	6050 3100 6000 3100
+Connection ~ 6050 3100
+Wire Wire Line
+	6050 3100 6050 3300
+Wire Wire Line
+	6050 2900 6000 2900
+Connection ~ 6050 2900
+Wire Wire Line
+	6050 2900 6050 3100
+Wire Wire Line
+	6050 4500 6050 4700
+Connection ~ 6050 4500
+Wire Wire Line
+	7150 2600 7100 2600
+Wire Wire Line
+	7100 2600 7100 2700
+Wire Wire Line
+	7100 2700 7150 2700
+Wire Wire Line
+	7100 2700 7100 2800
+Wire Wire Line
+	7100 2800 7150 2800
+Connection ~ 7100 2700
+Wire Wire Line
+	7100 2800 7100 2900
+Wire Wire Line
+	7100 4500 7150 4500
+Connection ~ 7100 2800
+Wire Wire Line
+	7150 4400 7100 4400
+Connection ~ 7100 4400
+Wire Wire Line
+	7100 4400 7100 4500
+Wire Wire Line
+	7150 4300 7100 4300
+Connection ~ 7100 4300
+Wire Wire Line
+	7100 4300 7100 4400
+Wire Wire Line
+	7150 4200 7100 4200
+Connection ~ 7100 4200
+Wire Wire Line
+	7100 4200 7100 4300
+Wire Wire Line
+	7150 4100 7100 4100
+Connection ~ 7100 4100
+Wire Wire Line
+	7100 4100 7100 4200
+Wire Wire Line
+	7150 4000 7100 4000
+Connection ~ 7100 4000
+Wire Wire Line
+	7100 4000 7100 4100
+Wire Wire Line
+	7150 3900 7100 3900
+Connection ~ 7100 3900
+Wire Wire Line
+	7100 3900 7100 4000
+Wire Wire Line
+	7150 3800 7100 3800
+Connection ~ 7100 3800
+Wire Wire Line
+	7100 3800 7100 3900
+Wire Wire Line
+	7150 3700 7100 3700
+Connection ~ 7100 3700
+Wire Wire Line
+	7100 3700 7100 3800
+Wire Wire Line
+	7150 3600 7100 3600
+Connection ~ 7100 3600
+Wire Wire Line
+	7100 3600 7100 3700
+Wire Wire Line
+	7150 3500 7100 3500
+Connection ~ 7100 3500
+Wire Wire Line
+	7100 3500 7100 3600
+Wire Wire Line
+	7150 3400 7100 3400
+Connection ~ 7100 3400
+Wire Wire Line
+	7100 3400 7100 3500
+Wire Wire Line
+	7150 3300 7100 3300
+Connection ~ 7100 3300
+Wire Wire Line
+	7100 3300 7100 3400
+Wire Wire Line
+	7150 3200 7100 3200
+Connection ~ 7100 3200
+Wire Wire Line
+	7100 3200 7100 3300
+Wire Wire Line
+	7150 3100 7100 3100
+Connection ~ 7100 3100
+Wire Wire Line
+	7100 3100 7100 3200
+Wire Wire Line
+	7150 3000 7100 3000
+Connection ~ 7100 3000
+Wire Wire Line
+	7100 3000 7100 3100
+Wire Wire Line
+	7150 2900 7100 2900
+Connection ~ 7100 2900
+Wire Wire Line
+	7100 2900 7100 3000
+Wire Wire Line
+	7100 4500 7100 4700
+Wire Wire Line
+	7400 4700 7400 4650
+Connection ~ 7100 4500
+$Comp
+L Igloo10:TEST_PAD U2
+U 1 1 5E2BA480
+P 8200 3500
+F 0 "U2" H 8072 3459 50  0000 R CNN
+F 1 "TEST_PAD" H 8072 3550 50  0000 R CNN
+F 2 "Igloo10:TEST_PAD" H 8200 4050 50  0001 C CNN
+F 3 "" H 8200 4050 50  0001 C CNN
+	1    8200 3500
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7950 4400 7950 3950
+Wire Wire Line
+	7950 3950 8000 3950
+Wire Wire Line
+	7900 4200 7900 3850
+Wire Wire Line
+	7900 3850 8000 3850
+Wire Wire Line
+	7900 2800 7900 3150
+Wire Wire Line
+	7900 3150 8000 3150
+Wire Wire Line
+	7950 2600 7950 3050
+Wire Wire Line
+	7950 3050 8000 3050
+Wire Wire Line
+	7650 2600 7950 2600
+Wire Wire Line
+	7650 2800 7900 2800
+Wire Wire Line
+	7650 3000 7850 3000
+Wire Wire Line
+	7850 3000 7850 3250
+Wire Wire Line
+	7850 3250 8000 3250
+Wire Wire Line
+	7650 3200 7800 3200
+Wire Wire Line
+	7800 3200 7800 3350
+Wire Wire Line
+	7800 3350 8000 3350
+Wire Wire Line
+	7650 3400 7750 3400
+Wire Wire Line
+	7750 3400 7750 3450
+Wire Wire Line
+	7750 3450 8000 3450
+Wire Wire Line
+	7650 3600 7750 3600
+Wire Wire Line
+	7750 3600 7750 3550
+Wire Wire Line
+	7750 3550 8000 3550
+Wire Wire Line
+	7650 3800 7800 3800
+Wire Wire Line
+	7800 3800 7800 3650
+Wire Wire Line
+	7800 3650 8000 3650
+Wire Wire Line
+	7650 4000 7850 4000
+Wire Wire Line
+	7850 4000 7850 3750
+Wire Wire Line
+	7850 3750 8000 3750
+Wire Wire Line
+	7650 4200 7900 4200
+Wire Wire Line
+	7650 4400 7950 4400
+Wire Wire Line
+	7650 2700 7700 2700
+Wire Wire Line
+	7700 2700 7700 2900
+Wire Wire Line
+	7700 4500 7650 4500
+Wire Wire Line
+	7700 4300 7650 4300
+Connection ~ 7700 4300
+Wire Wire Line
+	7700 4300 7700 4500
+Wire Wire Line
+	7700 4100 7650 4100
+Connection ~ 7700 4100
+Wire Wire Line
+	7700 4100 7700 4300
+Wire Wire Line
+	7700 3900 7650 3900
+Connection ~ 7700 3900
+Wire Wire Line
+	7700 3900 7700 4100
+Wire Wire Line
+	7700 3700 7650 3700
+Connection ~ 7700 3700
+Wire Wire Line
+	7700 3700 7700 3900
+Wire Wire Line
+	7700 3500 7650 3500
+Connection ~ 7700 3500
+Wire Wire Line
+	7700 3500 7700 3700
+Wire Wire Line
+	7700 3300 7650 3300
+Connection ~ 7700 3300
+Wire Wire Line
+	7700 3300 7700 3500
+Wire Wire Line
+	7700 3100 7650 3100
+Connection ~ 7700 3100
+Wire Wire Line
+	7700 3100 7700 3300
+Wire Wire Line
+	7700 2900 7650 2900
+Connection ~ 7700 2900
+Wire Wire Line
+	7700 2900 7700 3100
+Wire Wire Line
+	7700 4500 7700 4700
+Connection ~ 7700 4500
+Wire Wire Line
+	7700 4700 7400 4700
+Wire Wire Line
+	7400 4700 7100 4700
+Connection ~ 7400 4700
+Wire Wire Line
+	7100 4700 6050 4700
+Connection ~ 7100 4700
+Connection ~ 6050 4700
+$Comp
+L Igloo10:LSHM-120-01-L-RH-A-S-TR J1
+U 1 1 5E2EB51C
+P 5750 3500
+F 0 "J1" H 5750 4625 50  0000 C CNN
+F 1 "LSHM-120-01-L-RH-A-S-TR" H 5750 4534 50  0000 C CNN
+F 2 "Igloo10:LSHM-120-01-L-RH-A-S-TR" H 5750 4550 50  0001 C CNN
+F 3 "" H 5750 4550 50  0001 C CNN
+	1    5750 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Igloo10:LSHM-120-01-L-RH-A-S-TR J2
+U 1 1 5E2EC914
+P 7400 3500
+F 0 "J2" H 7400 4625 50  0000 C CNN
+F 1 "LSHM-120-01-L-RH-A-S-TR" H 7400 4534 50  0000 C CNN
+F 2 "Igloo10:LSHM-120-01-L-RH-A-S-TR" H 7400 4550 50  0001 C CNN
+F 3 "" H 7400 4550 50  0001 C CNN
+	1    7400 3500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

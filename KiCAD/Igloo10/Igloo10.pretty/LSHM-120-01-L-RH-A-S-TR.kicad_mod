@@ -1,8 +1,8 @@
-(module LSHM-110-01-L-RH-A-S-TR (layer F.Cu) (tedit 5E1FA943)
+(module LSHM-120-01-L-RH-A-S-TR (layer F.Cu) (tedit 5E20ED5E)
   (fp_text reference REF** (at -0.2105 -10.413) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value LSHM-110-01-L-RH-A-S-TR (at -0.2105 -11.413) (layer F.Fab) hide
+  (fp_text value LSHM-120-01-L-RH-A-S-TR (at -0.2105 -11.413) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (fp_line (start -0.15 -3) (end -4.85 -3) (layer F.SilkS) (width 0.05))
