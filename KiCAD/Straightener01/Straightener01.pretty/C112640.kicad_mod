@@ -1,0 +1,23 @@
+(module C112640 (layer F.Cu) (tedit 5E222216)
+  (fp_text reference REF** (at 0 -4.1) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value C112640 (at 0 -5.1) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (pad 2 smd rect (at -4.925 0) (size 1.35 4.72) (layers F.Cu F.Paste F.Mask)
+    (solder_mask_margin 0.5) (clearance 0.5))
+  (pad 2 smd rect (at 4.925 0) (size 1.35 4.72) (layers F.Cu F.Paste F.Mask)
+    (solder_mask_margin 0.5) (clearance 0.5))
+  (pad 1 smd rect (at 0 0) (size 0.86 4.72) (layers F.Cu F.Paste F.Mask)
+    (solder_mask_margin 0.5) (clearance 0.5))
+  (pad 2 smd rect (at -4.475 0) (size 1.67 4.72) (layers B.Cu B.Paste B.Mask)
+    (solder_mask_margin 0.5) (clearance 0.5))
+  (pad 2 smd rect (at 4.475 0) (size 1.67 4.72) (layers B.Cu B.Paste B.Mask)
+    (solder_mask_margin 0.5) (clearance 0.5))
+  (model ${KIPRJMOD}/Straightener01.3dshapes/C112640.wrl
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+)
