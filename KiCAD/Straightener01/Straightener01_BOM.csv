@@ -1,0 +1,10 @@
+﻿Item #,Ref Des,Qty,Cost/unit,Manufacturer,Mfg part #,Description,Package,Type,URL
+1,C1,1,$0.35 ,Panasonic,EEE-1VA220WR,22uF Pol Cap,"Radial, Can",SMD,https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEE-1VA220WR/PCE3953CT-ND/766329
+2,"C2, C3",2,$0.67 ,Murata,GCM31CR71E475KA55L,4.7uF,1206,SMD,https://www.digikey.com/product-detail/en/murata-electronics/GCM31CR71E475KA55L/490-4794-1-ND/1641713
+3,C4,1,$1.28 ,Murata,GJ831CR61E106KE83L,10uF,1206,SMD,https://www.digikey.com/product-detail/en/murata-electronics/GJ831CR61E106KE83L/490-14441-1-ND/6606902
+4,R2,1,$0.10 ,Vishay,CRCW0603200KJNEA,200 kOhm,0603,SMD,https://www.digikey.com/product-detail/en/vishay-dale/CRCW0603200KJNEA/541-200KGCT-ND/1179424
+5,R3,1,$0.10 ,Vishay,CRCW0603249RFKEA,249 Ohm,0603,SMD,https://www.digikey.com/product-detail/en/vishay-dale/CRCW0603249RFKEA/541-249HCT-ND/1179738
+6,R5,1,$0.10 ,Vishay,CRCW0603453KFKEA,453 kOhm,0603,SMD,https://www.digikey.com/product-detail/en/vishay-dale/CRCW0603453KFKEA/541-453KHCT-ND/1180112
+7,R6,1,$0.10 ,Vishay,CRCW060349K9FKEA,49.9 kOhm,0603,SMD,https://www.digikey.com/product-detail/en/vishay-dale/CRCW060349K9FKEA/541-49.9KHCT-ND/1180003
+8,"J1, J2",2,$5.72 ,Amphenol,112640,BNC Jack,End Launch,SMD,https://www.digikey.com/product-detail/en/amphenol-rf/112640/ACX2259-ND/3995580
+9,IC1,1,$6.78 ,Analog Devices,LT3045EDD#PBF,Regulator,10-DFN,SMD,https://www.digikey.com/product-detail/en/LT3045EDD%23PBF/LT3045EDD%23PBF-ND/6234770/?itemSeq=316279207
