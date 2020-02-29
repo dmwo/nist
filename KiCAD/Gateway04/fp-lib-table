@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Gateway04)(type KiCad)(uri ${KIPRJMOD}/Gateway04.pretty)(options "")(descr ""))
+)
