@@ -31,6 +31,22 @@ def pp(points):
     plt.plot(points[:,0], points[:,1], '.--')
     plt.gca().set_aspect('equal', 'box')
 
+def _rotate_points(points, angle = 45, center = (0,0)):
+    """ Rotates points around a centerpoint defined by ``center``.  ``points`` may be
+    input as either single points [1,2] or array-like[N][2], and will return in kind
+    """
+    if angle == 0:
+         return points
+    angle = np.radians(angle)
+    ca = np.cos(angle)
+    sa = np.sin(angle)
+    sa = np.array((-sa, sa))
+    c0 = np.array(center)
+    if np.asarray(points).ndim == 2:
+        return (points - c0) * ca + (points - c0)[:,::-1] * sa + c0
+    if np.asarray(points).ndim == 1:
+        return (points - c0) * ca + (points - c0)[::-1] * sa + c0
+
 def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 1000):
     """ Creates a partial Euler bend formed by two clothoid curves and one normal arc 
     
@@ -68,9 +84,18 @@ def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 1000):
     # Mirroring and combining into complete curve
     xbend = np.concatenate([xbend1, xbend2[1:]])
     ybend = np.concatenate([ybend1, ybend2[1:]])
-    xbend_flip = np.flip(xbend[:-1])
-    ybend_flip = np.flip((2 * max(ybend) - ybend)[:-1])
+    pts = list(zip(np.flip(xbend[:-1]), np.flip((2 * max(ybend) - ybend)[:-1])))
+    rot_pts = _rotate_points(pts, np.degrees(a) - 180, (xbend[-1], ybend[-1]))
+    xbend_flip = np.array(([a for a,b in rot_pts], [b for a,b in rot_pts])[0])
+    ybend_flip = np.array(([a for a,b in rot_pts], [b for a,b in rot_pts])[1])
     x = np.concatenate([xbend, xbend_flip])
     y = np.concatenate([ybend, ybend_flip])
 
     return x, y
+
+# %%
+x, y = partial_euler(a=370)
+pp(np.array([x, y]).T)
+
+
+# %%
