@@ -67,7 +67,7 @@ class PNPRack:
 
         Parameters
         ----------
-        addr : int  , target device address on I2C bus
+        addr : int  , target device address on I2C bus\n
         data : tuple, data to send to target device (truncated to bytes)
         """
 
@@ -86,7 +86,7 @@ class PNPRack:
 
         Parameters
         ----------
-        addr      : int, target device address on I2C bus
+        addr      : int, target device address on I2C bus\n
         num_bytes : int, number of bytes to request
 
         Returns
@@ -117,7 +117,7 @@ class PNPRack:
 
         Parameters
         ----------
-        volt : float, voltage setting of the DAC (range 0-3.288[V])
+        volt : float, voltage setting of the DAC (range 0-3.288[V])\n
         slot : tuple, pnp slot of target device (of form (row, col))
         """
 
@@ -172,7 +172,7 @@ class PNPRack:
 
         Parameters
         ----------
-        slot : tuple, pnp slot of target device (of form (row, col))
+        slot : tuple, pnp slot of target device (of form (row, col))\n
         ref  : int  , reference value
 
         Returns
