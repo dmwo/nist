@@ -47,18 +47,26 @@ def _rotate_points(points, angle = 45, center = (0,0)):
     if np.asarray(points).ndim == 1:
         return (points - c0) * ca + (points - c0)[::-1] * sa + c0
 
-def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 1000):
-    """ Creates a partial Euler bend formed by two clothoid curves and one normal arc 
+def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 4000):
+    """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
     
     Parameters
     ----------
-    R0
-    p
-    a
-    num_pts
+    R0 : int or float
+        Radius of the clothoid curves.
+    p  : float
+        Bend parameter. Expressed as the decimal percentage of the curve that is clothoid.
+    a : int or float
+        Total angle of the complete curve in degrees.
+    num_pts : int
+        The number of points of the final curve (must be divisible by 4). Actual number of points will be ``num_pts`` + 1
 
     Returns
     -------
+    x : ndarray
+        Array of the x-coordinate values of the partial Euler curve.
+    y : ndarray
+        Array of the y-coordinate values of the partial Euler curve.
     """
     a = np.radians(a)
     asp = p * a / 2
@@ -70,10 +78,10 @@ def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 1000):
         Rp = R0
 
     # Clothoid curve
-    xbend1, ybend1 = fresnel(R0, sp, 1000)
+    xbend1, ybend1 = fresnel(R0, sp, int(num_pts / 4))
 
     # Normal curve
-    s = np.linspace(sp, s0 / 2, 1000)
+    s = np.linspace(sp, s0 / 2, int(num_pts / 4 + 1))
     xbend2 = Rp * np.sin(((s - sp) / Rp + asp))
     ybend2 = Rp * (1 - np.cos(((s - sp) / Rp + asp)))
     x_offset = xbend1[-1] - xbend2[0]
@@ -93,9 +101,25 @@ def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 1000):
 
     return x, y
 
-# %%
-x, y = partial_euler(a=370)
-pp(np.array([x, y]).T)
+def curvature(x, y):
+    # s = np.linspace(0, )
+    dxdt = np.gradient(x); dydt = np.gradient(y)
+    d2xdt2 = np.gradient(dxdt); d2ydt2 = np.gradient(dydt)
+    K = abs(dxdt * d2ydt2 - dydt * d2xdt2) / (dxdt**2 + dydt**2)**1.5
+    return x, K[:-2]
 
+# %%
+x, y = partial_euler(R0 = 1.4, a = 90)
+pp(np.array([x, y]).T)
+plt.show()
+
+s, K = curvature(x, y)
+t = np.linspace(0, s0, len(K))
+fig = plt.figure()
+pp(np.array([t, K]).T)
+ax = fig.add_subplot(111)
+ax.set_aspect(5)
+plt.axis([0,9,0,1])
+plt.show()
 
 # %%
