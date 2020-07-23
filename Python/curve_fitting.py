@@ -14,18 +14,6 @@ def cumtrapz(x):
     function usually found in scipy (scipy.integrate.cumtrapz) """
     return np.cumsum((x[1:] + x[:-1]) / 2)
 
-def fresnel(R0, s = 6, num_pts = 1000):
-    t = np.linspace(0, s, num_pts)
-    dt = t[1] - t[0]
-    dxdt = np.cos(t**2 / (2 * R0**2))
-    dydt = np.sin(t**2 / (2 * R0**2))
-    x = cumtrapz(dxdt)*dt
-    y = cumtrapz(dydt)*dt
-    x = np.concatenate([[0], x])
-    y = np.concatenate([[0], y])
-    # Fixme prepend zeros to x and y?  YES
-    return x,y
-
 def pp(points):
     """ Plots a list of points """
     plt.plot(points[:,0], points[:,1], '.--')
@@ -47,7 +35,7 @@ def _rotate_points(points, angle = 45, center = (0,0)):
     if np.asarray(points).ndim == 1:
         return (points - c0) * ca + (points - c0)[::-1] * sa + c0
 
-def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 4000):
+def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000):
     """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
     
     Parameters
@@ -68,58 +56,85 @@ def partial_euler(R0 = 3, p = 0.2, a = 90, num_pts = 4000):
     y : ndarray
         Array of the y-coordinate values of the partial Euler curve.
     """
-    a = np.radians(a)
+    a   = np.radians(a)
     asp = p * a / 2
-    Rp = R0 / 2 / np.sqrt(asp)
-    sp = R0 * np.sqrt(2 * asp)
-    s0 = 2 * sp + Rp * a * (1 - p)
-    if p == 0:
-        s0 = R0 * a
-        Rp = R0
+    Rp  = 1 / 2 / np.sqrt(asp)
+    sp  = np.sqrt(2 * asp)
 
-    # Clothoid curve
-    xbend1, ybend1 = fresnel(R0, sp, int(num_pts / 4))
+    s0  = 2 * sp + Rp * a * (1 - p)
+    scale = a / (2 * sp * (s0 - sp))
+    if p == 0: 
+        s0 = a
+        scale = a / s0
 
-    # Normal curve
-    s = np.linspace(sp, s0 / 2, int(num_pts / 4 + 1))
-    xbend2 = Rp * np.sin(((s - sp) / Rp + asp))
-    ybend2 = Rp * (1 - np.cos(((s - sp) / Rp + asp)))
-    x_offset = xbend1[-1] - xbend2[0]
-    y_offset = ybend1[-1] - ybend2[0]
-    xbend2 += x_offset
-    ybend2 += y_offset
+    s = np.linspace(0, s0, num_pts)
+    K = np.zeros(num_pts)
+    if p == 0: K += 1
+    else:
+        for i in range(len(K)):
+            if   s[i] <= sp         : K[i] = 2 * s[i]
+            elif sp < s[i] < s0 - sp: K[i] = 2 * sp
+            elif s0 - sp < s[i] < s0: K[i] = 2 * (s0 - s[i])
+    K *= scale / Reff
+    s *= Reff
 
-    # Mirroring and combining into complete curve
-    xbend = np.concatenate([xbend1, xbend2[1:]])
-    ybend = np.concatenate([ybend1, ybend2[1:]])
-    pts = list(zip(np.flip(xbend[:-1]), np.flip((2 * max(ybend) - ybend)[:-1])))
-    rot_pts = _rotate_points(pts, np.degrees(a) - 180, (xbend[-1], ybend[-1]))
-    xbend_flip = np.array(([a for a,b in rot_pts], [b for a,b in rot_pts])[0])
-    ybend_flip = np.array(([a for a,b in rot_pts], [b for a,b in rot_pts])[1])
-    x = np.concatenate([xbend, xbend_flip])
-    y = np.concatenate([ybend, ybend_flip])
+    ds = s[1] - s[0]
+    φ = cumtrapz(K * ds)
+    x = np.cumsum(ds * np.cos(φ))
+    y = np.cumsum(ds * np.sin(φ))
+    x = np.concatenate([[0], x])
+    y = np.concatenate([[0], y])
 
-    return x, y
+    return x, y, s, K
 
 def curvature(x, y):
-    # s = np.linspace(0, )
-    dxdt = np.gradient(x); dydt = np.gradient(y)
-    d2xdt2 = np.gradient(dxdt); d2ydt2 = np.gradient(dydt)
-    K = abs(dxdt * d2ydt2 - dydt * d2xdt2) / (dxdt**2 + dydt**2)**1.5
-    return x, K[:-2]
+    dxdt = np.gradient(x, edge_order = 1); dydt = np.gradient(y, edge_order = 1)
+    d2xdt2 = np.gradient(dxdt, edge_order = 2); d2ydt2 = np.gradient(dydt, edge_order = 2)
+    dφdt = (dxdt * d2ydt2 - dydt * d2xdt2) / (dxdt**2 + dydt**2)
+    dsdt = np.sqrt((dxdt)**2 + (dydt)**2)
+    s = cumtrapz(dsdt)
+    s = np.concatenate([[0], s])
+    K = dφdt / dsdt
+    return s, K
 
 # %%
-x, y = partial_euler(R0 = 1.4, a = 90)
+x, y, s, K = partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000)
+
+middle = int((num_pts - 1) / 2)
+η = Reff / (y[middle] + x[middle] / np.tan(a / 2))
+
+Rp *= Reff * η
+sp *= Reff * η
+s0 = 2 * sp + Rp * a * (1 - p)
+scale = a / (2 * sp * (s0 - sp))
+s = np.linspace(0, s0, num_pts)
+K = np.zeros(num_pts)
+if p == 0: K += Reff
+else:
+    for i in range(len(K)):
+        if   s[i] <= sp         : K[i] = 2 * s[i]
+        elif sp < s[i] < s0 - sp: K[i] = 2 * sp
+        elif s0 - sp < s[i] < s0: K[i] = 2 * (s0 - s[i])
+K *= scale
+ds = s[1] - s[0]
+φ = cumtrapz(K * ds)
+x = np.cumsum(ds * np.cos(φ))
+y = np.cumsum(ds * np.sin(φ))
+x = np.concatenate([[0], x])
+y = np.concatenate([[0], y])
+
+s1, K1 = curvature(x, y)
+
 pp(np.array([x, y]).T)
 plt.show()
-
-s, K = curvature(x, y)
-t = np.linspace(0, s0, len(K))
-fig = plt.figure()
-pp(np.array([t, K]).T)
-ax = fig.add_subplot(111)
-ax.set_aspect(5)
-plt.axis([0,9,0,1])
+plt.plot(s, K)
+plt.plot(s1, K1)
 plt.show()
+
+Reff = 3
+print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y[-1] - Reff)**2 + (x[-1])**2), Reff))
+
+
+ # %%
 
 # %%
