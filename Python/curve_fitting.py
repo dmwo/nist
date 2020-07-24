@@ -35,7 +35,27 @@ def _rotate_points(points, angle = 45, center = (0,0)):
     if np.asarray(points).ndim == 1:
         return (points - c0) * ca + (points - c0)[::-1] * sa + c0
 
-def curve_array(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
+def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
+    """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
+    
+    Parameters
+    ----------
+    R0 : int or float
+        Radius of the clothoid curves.
+    p  : float
+        Bend parameter. Expressed as the decimal percentage of the curve that is clothoid.
+    a : int or float
+        Total angle of the complete curve in degrees.
+    num_pts : int
+        The number of points of the final curve (must be divisible by 4). Actual number of points will be ``num_pts`` + 1
+
+    Returns
+    -------
+    x : ndarray
+        Array of the x-coordinate values of the partial Euler curve.
+    y : ndarray
+        Array of the y-coordinate values of the partial Euler curve.
+    """
     η = kwargs.get('η', 1)
     j = kwargs.get('j', 0)
 
@@ -74,58 +94,6 @@ def curve_array(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     if j == 1: return x, y, s, K
     else: return curve_array(Reff, np.degrees(a), p, num_pts, η = η, j = 1)
 
-def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000):
-    """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
-    
-    Parameters
-    ----------
-    R0 : int or float
-        Radius of the clothoid curves.
-    p  : float
-        Bend parameter. Expressed as the decimal percentage of the curve that is clothoid.
-    a : int or float
-        Total angle of the complete curve in degrees.
-    num_pts : int
-        The number of points of the final curve (must be divisible by 4). Actual number of points will be ``num_pts`` + 1
-
-    Returns
-    -------
-    x : ndarray
-        Array of the x-coordinate values of the partial Euler curve.
-    y : ndarray
-        Array of the y-coordinate values of the partial Euler curve.
-    """
-    a   = np.radians(a)
-    asp = p * a / 2
-    Rp  = 1 / 2 / np.sqrt(asp)
-    sp  = np.sqrt(2 * asp)
-
-    s0  = 2 * sp + Rp * a * (1 - p)
-    scale = a / (2 * sp * (s0 - sp))
-    if p == 0: 
-        s0 = a
-        scale = a / s0
-
-    s = np.linspace(0, s0, num_pts)
-    K = np.zeros(num_pts)
-    if p == 0: K += 1
-    else:
-        for i in range(len(K)):
-            if   s[i] <= sp         : K[i] = 2 * s[i]
-            elif sp < s[i] < s0 - sp: K[i] = 2 * sp
-            elif s0 - sp < s[i] < s0: K[i] = 2 * (s0 - s[i])
-    K *= scale / Reff
-    s *= Reff
-
-    ds = s[1] - s[0]
-    φ = cumtrapz(K * ds)
-    x = np.cumsum(ds * np.cos(φ))
-    y = np.cumsum(ds * np.sin(φ))
-    x = np.concatenate([[0], x])
-    y = np.concatenate([[0], y])
-
-    return x, y, s, K
-
 def curvature(x, y):
     dxdt = np.gradient(x, edge_order = 1); dydt = np.gradient(y, edge_order = 1)
     d2xdt2 = np.gradient(dxdt, edge_order = 2); d2ydt2 = np.gradient(dydt, edge_order = 2)
@@ -137,55 +105,16 @@ def curvature(x, y):
     return s, K
 
 # %%
-num_pts = 4000; Reff = 3; a = 263.01; p = 1
+Reff = 3; a = 90; p = 0.5; num_pts = 4000
 x, y, s, K = partial_euler(Reff, a, p, num_pts)
-x1, y1, s1, K1 = curve_array(Reff, a, p, num_pts)
-a   = np.radians(a)
-asp = p * a / 2
-Rp  = 1 / 2 / np.sqrt(asp)
-sp  = np.sqrt(2 * asp)
-
-middle = int((num_pts - 1) / 2)
-η = Reff / (y[middle] + x[middle] / np.tan(a / 2))
-
-Rp *= Reff * η
-sp *= Reff * η
-s0 = 2 * sp + Rp * a * (1 - p)
-scale = a / (2 * sp * (s0 - sp))
-if p == 0: 
-    s0 = a * Reff
-    scale = a / s0
-s = np.linspace(0, s0, num_pts)
-K = np.zeros(num_pts)
-if p == 0: K += 1
-else:
-    for i in range(len(K)):
-        if   s[i] <= sp         : K[i] = 2 * s[i]
-        elif sp < s[i] < s0 - sp: K[i] = 2 * sp
-        elif s0 - sp < s[i] < s0: K[i] = 2 * (s0 - s[i])
-K *= scale
-ds = s[1] - s[0]
-φ = cumtrapz(K * ds)
-x = np.cumsum(ds * np.cos(φ))
-y = np.cumsum(ds * np.sin(φ))
-x = np.concatenate([[0], x])
-y = np.concatenate([[0], y])
-
-s2, K2 = curvature(x, y)
-s3, K3 = curvature(x1, y1)
+s1, K1 = curvature(x, y)
 
 pp(np.array([x, y]).T)
-# plt.show()
-pp(np.array([x1, y1]).T)
 plt.show()
 plt.plot(s, K)
 plt.plot(s1, K1)
-# plt.show()
-plt.plot(s2, K2)
-plt.plot(s3, K3)
 plt.show()
 
-Reff = 3
 print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y1[-1] - Reff)**2 + (x1[-1])**2), Reff))
 
 
