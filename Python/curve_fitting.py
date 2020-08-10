@@ -6,6 +6,7 @@ Created on Fri Jul 17 11:58:33 2020
 """
 #%%
 import numpy as np
+from numpy import sin, cos
 import matplotlib.pyplot as plt
 import scipy.special as sc
 
@@ -19,35 +20,19 @@ def pp(points):
     plt.plot(points[:,0], points[:,1], '.--')
     plt.gca().set_aspect('equal', 'box')
 
-def _rotate_points(points, angle = 45, center = (0,0)):
-    """ Rotates points around a centerpoint defined by ``center``.  ``points`` may be
-    input as either single points [1,2] or array-like[N][2], and will return in kind
-    """
-    if angle == 0:
-         return points
-    angle = np.radians(angle)
-    ca = np.cos(angle)
-    sa = np.sin(angle)
-    sa = np.array((-sa, sa))
-    c0 = np.array(center)
-    if np.asarray(points).ndim == 2:
-        return (points - c0) * ca + (points - c0)[:,::-1] * sa + c0
-    if np.asarray(points).ndim == 1:
-        return (points - c0) * ca + (points - c0)[::-1] * sa + c0
-
 def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
     
     Parameters
     ----------
-    R0 : int or float
-        Radius of the clothoid curves.
-    p  : float
+    Reff : float
+        Total effective radius of the partial Euler bend.
+    a : float
+        Total angle of the partial Euler bend in degrees.
+    p : float
         Bend parameter. Expressed as the decimal percentage of the curve that is clothoid.
-    a : int or float
-        Total angle of the complete curve in degrees.
     num_pts : int
-        The number of points of the final curve (must be divisible by 4). Actual number of points will be ``num_pts`` + 1
+        The number of points in the final curve.
 
     Returns
     -------
@@ -58,46 +43,71 @@ def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     """
     η = kwargs.get('η', 1)
     j = kwargs.get('j', 0)
+    if a <= 0 or a > 180: 
+        raise ValueError("'a' must be a float such that 0 < a ≤ 180.")
 
-    if a <= 0 or a > 263: raise ValueError("'a' must be a float such that 0 < a ≤ 263.")
-    a   = np.radians(a)
-    asp = p * a / 2
-    Rp  = 1 / 2 / np.sqrt(asp) * (j * Reff * η + 1 - j)
-    sp  = np.sqrt(2 * asp) * (j * Reff * η + 1 - j)
+    # Overhead calculations
+    a = np.radians(a)
+    asp = p*a / 2
+    Rp = (j*Reff*η + 1 - j) / (2*np.sqrt(asp))
+    sp = (j*Reff*η + 1 - j) * np.sqrt(2*asp)
+    s0 = 2*sp + Rp*a*(1 - p)
+    scale = a / (2*sp*(s0 - sp))
+    if p == 0:
+        s0 = a * (j*Reff*η + 1 - j)
+        scale = a / s0
 
-    s0  = 2 * sp + Rp * a * (1 - p)
-    scale = a / (2 * sp * (s0 - sp))
-    if p == 0: s0 = a * (j * Reff * η + 1 - j); scale = a / s0
-
+    # Constructing s and K arrays
     s = np.linspace(0, s0, num_pts)
     K = np.zeros(num_pts)
     if p == 0: K += 1
     else:
         i1 = np.argmax(s > sp)
         i2 = np.argmax(s >= s0 - sp)
-        K = np.concatenate([np.multiply(np.ones(i1), 2 * s[:i1]),
-                           np.multiply(np.ones(i2 - i1),2 * sp),
-                           np.multiply(np.ones(num_pts - i2), 2 * (s0 - s[i2:num_pts]))])
-    K *= scale * ((1 - j) / Reff + j)
+        K = np.concatenate([np.multiply(np.ones(i1), 2*s[:i1]),
+                            np.multiply(np.ones(i2-i1), 2*sp),
+                            np.multiply(np.ones(num_pts-i2), 
+                                        2 * (s0 - s[i2:num_pts]))])
+    K *= scale * ((1 - j)/Reff + j)
     s *= Reff * (1 - j) + j
 
+    # Integrating to find x and y
     ds = s[1] - s[0]
-    φ = cumtrapz(K * ds)
-    x = np.cumsum(ds * np.cos(φ))
-    y = np.cumsum(ds * np.sin(φ))
+    φ = cumtrapz(K*ds)
+    x = np.cumsum(ds*cos(φ))
+    y = np.cumsum(ds*sin(φ))
     x = np.concatenate([[0], x])
     y = np.concatenate([[0], y])
 
+    # Calculating η rescaling factor
     middle = int((num_pts - 1) / 2)
-    η = Reff / (y[middle] + x[middle] / np.tan(a / 2))
+    η = Reff / (y[middle] + x[middle] / np.tan(a/2))
 
-    if j == 1: return x, y, s, K
-    else: return curve_array(Reff, np.degrees(a), p, num_pts, η = η, j = 1)
+    if j == 1: return x, y
+    else: return partial_euler(Reff, np.degrees(a), p, num_pts, η = η, j = 1)
 
 def curvature(x, y):
-    dxdt = np.gradient(x, edge_order = 1); dydt = np.gradient(y, edge_order = 1)
-    d2xdt2 = np.gradient(dxdt, edge_order = 2); d2ydt2 = np.gradient(dydt, edge_order = 2)
-    dφdt = (dxdt * d2ydt2 - dydt * d2xdt2) / (dxdt**2 + dydt**2)
+    """ Calculates the curvature vs path length for a curve defined by coordinates (``x``, ``y``).
+
+    Parameters
+    ----------
+    x : nd.array
+        Array of x-coordinates of the input curve.
+    y : nd.array
+        Array of y-coordinates of the input curve.
+
+    Returns
+    -------
+    s : np.array
+        Array of path lengths.
+    K : np.array
+        Array of curvatures.
+    """
+    dxdt = np.gradient(x, edge_order = 1)
+    dydt = np.gradient(y, edge_order = 1)
+    d2xdt2 = np.gradient(dxdt, edge_order = 2)
+    d2ydt2 = np.gradient(dydt, edge_order = 2)
+    dφdt = (dxdt*d2ydt2 - dydt*d2xdt2) / (dxdt**2 + dydt**2)
     dsdt = np.sqrt((dxdt)**2 + (dydt)**2)
     s = cumtrapz(dsdt)
     s = np.concatenate([[0], s])
@@ -105,17 +115,15 @@ def curvature(x, y):
     return s, K
 
 # %%
-Reff = 3; a = 90; p = 0.5; num_pts = 4000
-x, y, s, K = partial_euler(Reff, a, p, num_pts)
-s1, K1 = curvature(x, y)
+Reff = 3
+x, y = partial_euler(Reff, a = 90, p = 0.5, num_pts = 4000)
+s, K = curvature(x, y)
 
 pp(np.array([x, y]).T)
 plt.show()
 plt.plot(s, K)
-plt.plot(s1, K1)
 plt.show()
 
-print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y1[-1] - Reff)**2 + (x1[-1])**2), Reff))
-
+print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y[-1] - Reff)**2 + (x[-1])**2), Reff))
 
 # %%
