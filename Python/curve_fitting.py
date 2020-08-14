@@ -6,7 +6,7 @@ Created on Fri Jul 17 11:58:33 2020
 """
 #%%
 import numpy as np
-from numpy import sin, cos
+from numpy import sin, cos, sqrt
 import matplotlib.pyplot as plt
 import scipy.special as sc
 
@@ -21,7 +21,8 @@ def pp(points):
     plt.gca().set_aspect('equal', 'box')
 
 def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
-    """ Creates a partial Euler bend formed by two clothoid curves and one normal arc.
+    """ Creates a partial Euler bend formed by two clothoid curves and one 
+    normal arc.
     
     Parameters
     ----------
@@ -30,7 +31,8 @@ def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     a : float
         Total angle of the partial Euler bend in degrees.
     p : float
-        Bend parameter. Expressed as the decimal percentage of the curve that is clothoid.
+        Bend parameter. Expressed as the decimal percentage of the curve that 
+        is clothoid.
     num_pts : int
         The number of points in the final curve.
 
@@ -49,8 +51,8 @@ def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     # Overhead calculations
     a = np.radians(a)
     asp = p*a / 2
-    Rp = (j*Reff*η + 1 - j) / (2*np.sqrt(asp))
-    sp = (j*Reff*η + 1 - j) * np.sqrt(2*asp)
+    Rp = (j*Reff*η + 1 - j) / (2*sqrt(asp))
+    sp = (j*Reff*η + 1 - j) * sqrt(2*asp)
     s0 = 2*sp + Rp*a*(1 - p)
     scale = a / (2*sp*(s0 - sp))
     if p == 0:
@@ -86,8 +88,59 @@ def partial_euler(Reff = 3, a = 90, p = 0.2, num_pts = 4000, *args, **kwargs):
     if j == 1: return x, y
     else: return partial_euler(Reff, np.degrees(a), p, num_pts, η = η, j = 1)
 
+def partial_euler_Rmin(Rmin = 3, a = 90, p = 0.2, num_pts = 4000):
+    """ Creates a partial Euler bend formed by two clothoid curves and one 
+    normal arc.
+    
+    Parameters
+    ----------
+    Rmin : float
+        Radius of the normal portion of the Euler bend.
+    a : float
+        Total angle of the partial Euler bend in degrees.
+    p : float
+        Bend parameter. Expressed as the decimal percentage of the curve that 
+        is clothoid.
+    num_pts : int
+        The number of points in the final curve.
+
+    Returns
+    -------
+    x : ndarray
+        Array of the x-coordinate values of the partial Euler curve.
+    y : ndarray
+        Array of the y-coordinate values of the partial Euler curve.
+    """
+    # Overhead calculations
+    a = np.radians(a)
+    sp = sqrt(p*a)      # Clothoid-to-normal transition point s value
+    s0 = a*Rmin + sp    # Total path length derived from curvature integral = a
+    c = 1 / (2*sp*Rmin) # Scaling factor to enforce Rmin
+
+    # Constructing s and K arrays
+    s = np.linspace(0, s0, num_pts)
+    K = np.zeros(num_pts)
+    if p == 0: K += 1/Rmin
+    else:
+        i1 = np.argmax(s > sp)
+        i2 = np.argmax(s >= s0 - sp)
+        K = c * np.concatenate([np.multiply(np.ones(i1), 2*s[:i1]),
+                                np.multiply(np.ones(i2-i1), 2*sp),
+                                np.multiply(np.ones(num_pts-i2), 
+                                            2*(s0 - s[i2:num_pts]))])
+
+    # Integrating to find x and y
+    ds = s[1] - s[0]
+    p = cumtrapz(K*ds)
+    x, y = np.concatenate([np.array([[0],[0]]), 
+                           np.cumsum([ds*cos(p), ds*sin(p)], axis = 1)],
+                          axis = 1)
+
+    return x, y
+
 def curvature(x, y):
-    """ Calculates the curvature vs path length for a curve defined by coordinates (``x``, ``y``).
+    """ Calculates the curvature vs path length for a curve defined by 
+    coordinates (``x``, ``y``).
 
     Parameters
     ----------
@@ -108,15 +161,15 @@ def curvature(x, y):
     d2xdt2 = np.gradient(dxdt, edge_order = 2)
     d2ydt2 = np.gradient(dydt, edge_order = 2)
     dφdt = (dxdt*d2ydt2 - dydt*d2xdt2) / (dxdt**2 + dydt**2)
-    dsdt = np.sqrt((dxdt)**2 + (dydt)**2)
+    dsdt = sqrt((dxdt)**2 + (dydt)**2)
     s = cumtrapz(dsdt)
     s = np.concatenate([[0], s])
     K = dφdt / dsdt
     return s, K
 
 # %%
-Reff = 3
-x, y = partial_euler(Reff, a = 90, p = 0.5, num_pts = 4000)
+Rmin = 3
+x, y = partial_euler_Rmin(Rmin, a = 90, p = 0.6, num_pts = 4000)
 s, K = curvature(x, y)
 
 pp(np.array([x, y]).T)
@@ -124,6 +177,6 @@ plt.show()
 plt.plot(s, K)
 plt.show()
 
-print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y[-1] - Reff)**2 + (x[-1])**2), Reff))
+print('Target Rmin = {0}, Actual Rmin = {1}'.format(Rmin, 1/K[2000]))
 
 # %%
