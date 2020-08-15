@@ -193,68 +193,51 @@ def curvature(x, y):
     return s, K
 
 # %%
-Rmin = 3
-
-pp(np.array([partial_euler(Rmin, a = 90, p = 1, num_pts = 4000)]).T)
-pp(np.array([partial_euler(Rmin, a = 90, p = 0.8, num_pts = 4000)]).T)
-pp(np.array([partial_euler(Rmin, a = 90, p = 0.6, num_pts = 4000)]).T)
-pp(np.array([partial_euler(Rmin, a = 90, p = 0.4, num_pts = 4000)]).T)
-pp(np.array([partial_euler(Rmin, a = 90, p = 0.2, num_pts = 4000)]).T)
-pp(np.array([partial_euler(Rmin, a = 90, p = 0, num_pts = 4000)]).T)
+pp(np.array([partial_euler(Rmin = 3, a = 90, p = 1, num_pts = 4000)]).T)
 plt.show()
 plt.plot(curvature(partial_euler(Rmin, a = 90, p = 1, num_pts = 4000)))
-plt.plot(curvature(partial_euler(Rmin, a = 90, p = 0.8, num_pts = 4000)))
-plt.plot(curvature(partial_euler(Rmin, a = 90, p = 0.6, num_pts = 4000)))
-plt.plot(curvature(partial_euler(Rmin, a = 90, p = 0.4, num_pts = 4000)))
-plt.plot(curvature(partial_euler(Rmin, a = 90, p = 0.2, num_pts = 4000)))
-plt.plot(curvature(partial_euler(Rmin, a = 90, p = 0, num_pts = 4000)))
 plt.show()
 
 print('Target Rmin = {0}, Actual Rmin = {1}'.format(Rmin, 1/K[2000]))
 
-# %%
-num_turns = 4; gap = 1; inner_gap = 9; num_pts_half = 3000
+#%%
+num_turns = 3.25; gap = 1; inner_gap = 9; num_pts_half = 5000
+# num_turns must be greater than or equal to 1
 num_turns1 = np.floor(num_turns)
-# if (num_turns1 % 2) == 0: num_turns1 -= 1
-num_pts2 = int(2*(num_turns - num_turns1)*num_pts_half / num_turns1)
+if (num_turns % 2) == 0: num_turns1 -= 1
 
+# Creating angle array
+# a[0] represents the angle covered by the normal curve,
+# a[1] represents the angle covered by the normal + stub curve
 a1 = pi*num_turns1 + pi/2
 a2 = pi*num_turns + pi/2
 a = np.array([np.linspace(0, a1, num_pts_half),
               np.concatenate([np.linspace(0, a1, num_pts_half),
-                              np.linspace(a1, a2, num_pts2)])])
-i1 = [np.argmax(x > pi/2) for x in a]
-i2 = [np.argmax(x > 7*pi/2) for x in a]
-i3 = [len(x) for x in a]
-r = np.array([np.ones(i3[0]), np.ones(i3[1])])
-r[0][:i1[0]] = np.multiply(r[0][:i1[0]], inner_gap/2 * sin(a[0][:i1[0]]))
-r[1][:i1[0]] = np.multiply(r[1][:i1[0]], inner_gap/2 * sin(a[0][:i1[0]]))
+                              np.arange(a1, a2, a1/(num_pts_half-1))[1:]])])
 
-if i2[0] == 0:
-    t = inner_gap/2 + (a[0][i1[0]:i3[0]] - pi/2)/pi*gap
-    r[0][i1[0]:i3[0]] = np.multiply(r[0][i1[0]:i3[0]], t)
-    r[1][i1[0]:i3[0]] = np.multiply(r[1][i1[0]:i3[0]], t)
-    t = inner_gap/2 + (a[1][i3[0]:] - pi/2)/pi*gap
-    r[1][i3[0]:] = np.multiply(r[1][i3[0]:], t)
-if i2[0] != 0:
-    t = inner_gap/2 + (a[0][i1[0]:i3[0]] - pi/2)/pi*gap
-    r[0][i1[0]:i3[0]] = np.multiply(r[0][i1[0]:i3[0]], t)
-    r[1][i1[0]:i3[0]] = np.multiply(r[1][i1[0]:i3[0]], t)
-    # t = inner_gap/2 + 2*((a[0][i2[0]:i3[0]] - pi/2)/pi - 2)*gap
-    # r[0][i2[0]:i3[0]] = np.multiply(r[0][i2[0]:i3[0]], t)
-    # r[1][i2[0]:i3[0]] = np.multiply(r[1][i2[0]:i3[0]], t)
-    if i2[1] != 0:
-        t = inner_gap/2 + (a[1][i3[0]:] - pi/2)/pi*gap
-        # t = inner_gap/2 + 2*((a[1][i3[0]:] - pi/2)/pi - 2)*gap
-        r[1][i3[0]:] = np.multiply(r[1][i3[0]:], t)
-    else: pass
+# Calculating relevant indices
+# i1 is the transition point between the centre arc and the spiral
+# i2 is the end of the spiral section for the normal curve and the stub
+i1 = np.argmax(a[0] > pi/2)
+i2 = [len(x) for x in a]
 
-#%%
+
+r = np.array([np.ones(i2[0]), np.ones(i2[1])])
+r[0][:i1] = np.multiply(r[0][:i1], inner_gap/2 * sin(a[0][:i1]))
+r[1][:i1] = np.multiply(r[1][:i1], inner_gap/2 * sin(a[0][:i1]))
+t = inner_gap/2 + (a[0][i1:i2[0]] - pi/2)/pi*gap
+r[0][i1:i2[0]] = np.multiply(r[0][i1:i2[0]], t)
+r[1][i1:i2[0]] = np.multiply(r[1][i1:i2[0]], t)
+if i2[0] == 0 or i2[1] != 0:
+    t = inner_gap/2 + (a[1][i2[0]:] - pi/2)/pi*gap
+    r[1][i2[0]:] = np.multiply(r[1][i2[0]:], t)
+else: pass
+
 a, r = np.concatenate([[np.flip(a[1]), -np.flip(r[1])], [a[0], r[0]]],
                       axis = 1)
-
 x = r * cos(a)
 y = r * sin(a)
+
 s, K = curvature(x, y)
 pp(np.array([x, y]).T)
 plt.show()
