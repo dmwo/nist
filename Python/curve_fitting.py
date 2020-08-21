@@ -6,9 +6,37 @@ Created on Fri Jul 17 11:58:33 2020
 """
 #%%
 import numpy as np
-from numpy import pi, sin, cos, sqrt
+from numpy import pi, sin, cos, tanh, sqrt
+from numpy.linalg import norm
 import matplotlib.pyplot as plt
-import scipy.special as sc
+import scipy.optimize as opt
+
+def _rotate_points(points, angle = 45, center = (0,0)):
+    """ Rotates points around a centerpoint defined by ``center``.  ``points`` may be
+    input as either single points [1,2] or array-like[N][2], and will return in kind
+    """
+    if angle == 0:
+         return points
+    angle = angle*pi/180
+    ca = cos(angle)
+    sa = sin(angle)
+    sa = np.array((-sa, sa))
+    c0 = np.array(center)
+    if np.asarray(points).ndim == 2:
+        return (points - c0) * ca + (points - c0)[:,::-1] * sa + c0
+    if np.asarray(points).ndim == 1:
+        return (points - c0) * ca + (points - c0)[::-1] * sa + c0
+
+def _reflect_points(points, p1 = (0,0), p2 = (1,0)):
+    """ Reflects points across the line formed by p1 and p2.  ``points`` may be
+    input as either single points [1,2] or array-like[N][2], and will return in kind
+    """
+    # From http://math.stackexchange.com/questions/11515/point-reflection-across-a-line
+    points = np.array(points); p1 = np.array(p1); p2 = np.array(p2)
+    if np.asarray(points).ndim == 1:
+        return 2*(p1 + (p2-p1)*np.dot((p2-p1),(points-p1))/norm(p2-p1)**2) - points
+    if np.asarray(points).ndim == 2:
+        return np.array([2*(p1 + (p2-p1)*np.dot((p2-p1),(p-p1))/norm(p2-p1)**2) - p for p in points])
 
 def cumtrapz(x):
     """ Numpy-based implementation of the cumulative trapezoidal integration 
@@ -19,6 +47,17 @@ def pp(points):
     """ Plots a list of points """
     plt.plot(points[:,0], points[:,1], '.--')
     plt.gca().set_aspect('equal', 'box')
+
+def arc(radius = 10, angle = 90, num_pts = 720):
+    """ Produces an arc of points with `num_pts` per 360 degrees.  An extra point is
+    tacked on each end to ensure that the numerical gradient is accurate """
+    t = np.linspace(0, angle*np.pi/180, abs(int(num_pts*angle/360))-2)
+    x = radius*np.cos(t)
+    y = radius*np.sin(t)
+    points = np.array((x,y)).T
+    start_angle = 90*np.sign(angle)
+    end_angle = start_angle + angle
+    return points, start_angle, end_angle
 
 def partial_euler_Reff(Reff = 3, a = 90, p = 0.2, num_pts = 4000, 
                        *args, **kwargs):
@@ -177,36 +216,47 @@ def spiral(num_turns = 3.25, gap = 3, inner_gap = 9, num_pts_half = 3000):
     if num_turns < 1: raise ValueError('"num_turns" must be greater than or '
                                        'equal to 1')
     num_turns1 = np.floor(num_turns)
+    num_turns2 = num_turns1 + 2*(num_turns - num_turns1)
     if (num_turns % 2) == 0: num_turns1 -= 1
+    num_pts1 = int(num_pts_half/2)
 
-    # Creating angle array
-    # a[0] represents the angle covered by the normal curve,
-    # a[1] represents the angle covered by the normal + stub curve
-    a1 = pi*num_turns1 + pi/2
-    a2 = pi*num_turns + pi/2
-    a = np.array([np.linspace(0, a1, num_pts_half),
-                  np.concatenate([np.linspace(0, a1, num_pts_half),
-                                  np.arange(a1,a2, a1/(num_pts_half-1))[1:]])])
+    a1 = pi/2
+    a2 = pi*num_turns1 + a1
+    a3 = pi*num_turns2 + a1
+    n_range = (a2-a1) / (num_pts1-1)
 
-    # Calculating relevant indices
-    # i1 is the transition point between the centre arc and the spiral
-    # i2 is the end of the spiral section for the normal curve and the stub
-    i1 = np.argmax(a[0] > pi/2)
-    i2 = [len(x) for x in a]
-
-    # Forming radius array
-    r = np.array([np.ones(i2[0]), np.ones(i2[1])])
+    a = inner_gap/2 - gap/2
+    b = gap/pi
+    a_spiral = np.array([np.linspace(a1, a2, num_pts1),
+                        np.concatenate([np.linspace(a1, a2, num_pts1),
+                                        np.arange(a2, a3, n_range)[1:]])])
+    r_spiral = a + b * a_spiral
+    x_spiral = np.array([np.zeros(num_pts1), np.zeros(len(a_spiral[1]))])
+    y_spiral = np.array([np.zeros(num_pts1), np.zeros(len(a_spiral[1]))])
     for i in range(2):
-        r[i][:i1] = inner_gap/2 * sin(a[0][:i1])
-        r[i][i1:i2[0]] = inner_gap/2 + (a[0][i1:i2[0]] - pi/2)/pi*gap
-    if i2[0] == 0 or i2[1] != 0:
-        r[1][i2[0]:] = inner_gap/2 + (a[1][i2[0]:] - pi/2)/pi*gap
-    else: pass
+        x_spiral[i] = r_spiral[i]*cos(a_spiral[i])
+        y_spiral[i] = r_spiral[i]*sin(a_spiral[i])
 
-    # Combining both arms of the spiral together and converting to Cartesian
-    a, r = np.concatenate([[np.flip(a[1]), -np.flip(r[1])], [a[0], r[0]]],
-                          axis = 1)
-    x = r * cos(a); y = r * sin(a)
+    a_centre = np.linspace(0, a1, num_pts1)
+    m = (y_spiral[0][0] - y_spiral[0][1])/-x_spiral[0][1]
+    # h = inner_gap/2
+    phi = a_centre[-2]
+    d = opt.brentq(
+        lambda z: tanh(z*phi)/tanh(z*pi/2) - 1/(sin(phi) - m*cos(phi)),
+        1e-6, 10
+        )
+    # d = opt.brentq(lambda z: (h*sin(phi)*tanh(z*phi)/tanh(z*pi/2) - h)/(h*cos(phi)*tanh(z*phi)/tanh(z*pi/2)) - m, 1e-6, 10)
+    c = inner_gap / (2*tanh(d*pi/2))
+    r_centre = c * tanh(d*a_centre)
+    x_centre = r_centre*cos(a_centre); y_centre = r_centre*sin(a_centre)
+
+    x1, y1 = np.concatenate([[x_centre, y_centre],
+                            [x_spiral[0][1:], y_spiral[0][1:]]], axis = 1)
+    x2, y2 = np.concatenate([[x_centre, y_centre],
+                            [x_spiral[1][1:], y_spiral[1][1:]]], axis = 1)
+    x, y = np.concatenate([[np.flip(-x2[1:]), np.flip(-y2[1:])],
+                        [x1, y1]], axis = 1)
+
     return x, y
 
 def curvature(x, y):
@@ -241,7 +291,7 @@ def curvature(x, y):
 # %%
 Rmin = 3; Reff = 3
 # x, y = partial_euler(Rmin = Rmin, a = 90, p = 1, num_pts = 4000)
-x, y = partial_euler_Reff(Reff = Reff, a = 180, p = 0.4, num_pts = 4000)
+x, y = partial_euler_Reff(Reff = Reff, a = 180, p = 0.1, num_pts = 4000)
 pp(np.array([x, y]).T)
 plt.show()
 s, K = curvature(x, y)
@@ -251,9 +301,8 @@ plt.show()
 # print('Target Rmin = {0}, Actual Rmin = {1}'.format(Rmin, 1/K[2000]))
 print('Target Reff = {1}, Actual Reff = {0}'.format(np.sqrt((y[-1] - Reff)**2 + (x[-1])**2), Reff))
 
-#%%
-num_turns = 3.25; gap = 1; inner_gap = 9; num_pts_half = 10000
-# num_turns must be greater than or equal to 1
+# %%
+num_turns = 3.5; gap = 1; inner_gap = 6; num_pts_half = 3000
 num_turns1 = np.floor(num_turns)
 if (num_turns % 2) == 0: num_turns1 -= 1
 
@@ -262,9 +311,10 @@ if (num_turns % 2) == 0: num_turns1 -= 1
 # a[1] represents the angle covered by the normal + stub curve
 a1 = pi*num_turns1 + pi/2
 a2 = pi*num_turns + pi/2
+a_centre = np.concatenate()
 a = np.array([np.linspace(0, a1, num_pts_half),
-              np.concatenate([np.linspace(0, a1, num_pts_half),
-                              np.arange(a1, a2, a1/(num_pts_half-1))[1:]])])
+                np.concatenate([np.linspace(0, a1, num_pts_half),
+                                np.arange(a1,a2, a1/(num_pts_half-1))[1:]])])
 
 # Calculating relevant indices
 # i1 is the transition point between the centre arc and the spiral
@@ -272,23 +322,25 @@ a = np.array([np.linspace(0, a1, num_pts_half),
 i1 = np.argmax(a[0] > pi/2)
 i2 = [len(x) for x in a]
 
+# Forming radius array
 r = np.array([np.ones(i2[0]), np.ones(i2[1])])
 for i in range(2):
     r[i][:i1] = inner_gap/2 * sin(a[0][:i1])
     r[i][i1:i2[0]] = inner_gap/2 + (a[0][i1:i2[0]] - pi/2)/pi*gap
-# if i2[0] == 0 or i2[1] != 0:
-#     r[1][i2[0]:] = inner_gap/2 + (a[1][i2[0]:] - pi/2)/pi*gap
-# else: pass
+if i2[0] == 0 or i2[1] != 0:
+    r[1][i2[0]:] = inner_gap/2 + (a[1][i2[0]:] - pi/2)/pi*gap
+else: pass
 
+s1 = (a[0]*r[0])[i1]
+
+# Combining both arms of the spiral together and converting to Cartesian
 # a, r = np.concatenate([[np.flip(a[1]), -np.flip(r[1])], [a[0], r[0]]],
 #                       axis = 1)
-x = r[0] * cos(a[0])
-y = r[0] * sin(a[0])
+x = r[0][i1:i2[0]] * cos(a[0][i1:i2[0]]); y = r[0][i1:i2[0]] * sin(a[0][i1:i2[0]])
 
+#%%
+x, y = spiral()
+plt.plot(x, y)
+plt.show()
 s, K = curvature(x, y)
-pp(np.array([x, y]).T)
-plt.show()
 plt.plot(s, K)
-plt.show()
-# print((Kend-Kstart)/s0)
-# %%
