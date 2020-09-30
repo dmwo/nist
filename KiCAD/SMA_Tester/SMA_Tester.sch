@@ -1,0 +1,42 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L SMA_Tester:142-0701-801 J1
+U 1 1 5F447EC5
+P 5500 4000
+F 0 "J1" H 5553 4225 50  0000 C CNN
+F 1 "142-0701-801" H 5553 4134 50  0000 C CNN
+F 2 "SMA_Tester:142-0701-801" H 5475 4100 50  0001 C CNN
+F 3 "" H 5475 4100 50  0001 C CNN
+	1    5500 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4000 5700 4000
+Wire Wire Line
+	5700 4000 5700 4100
+$Comp
+L power:GND #PWR0101
+U 1 1 5F449575
+P 5700 4100
+F 0 "#PWR0101" H 5700 3850 50  0001 C CNN
+F 1 "GND" H 5705 3927 50  0000 C CNN
+F 2 "" H 5700 4100 50  0001 C CNN
+F 3 "" H 5700 4100 50  0001 C CNN
+	1    5700 4100
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

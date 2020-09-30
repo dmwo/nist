@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name SMA_Tester)(type Legacy)(uri ${KIPRJMOD}/SMA_Tester.lib)(options "")(descr ""))
+)
