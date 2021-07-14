@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name Bullhorn01)(type Legacy)(uri ${KIPRJMOD}/Bullhorn01.lib)(options "")(descr ""))
+)

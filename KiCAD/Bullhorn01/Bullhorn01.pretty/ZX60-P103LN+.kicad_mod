@@ -1,0 +1,13 @@
+(module ZX60-P103LN+ (layer F.Cu) (tedit 5F863DCA)
+  (fp_text reference REF** (at 0 -21.2725) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value ZX60-P103LN+ (at 0 -21.2725) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_poly (pts (xy 15.25 2.5) (xy 9.55 2.5) (xy 9.55 -2.5) (xy 15.25 -2.5)) (layer F.Mask) (width 0.1))
+  (fp_poly (pts (xy -15.25 -2.5) (xy -9.55 -2.5) (xy -9.55 2.5) (xy -15.25 2.5)) (layer F.Mask) (width 0.1))
+  (pad 1 thru_hole oval (at -12.7 0) (size 3.099999 10.1) (drill oval 2.999999 10) (layers *.Cu *.Mask))
+  (pad 1 thru_hole oval (at 12.7 0) (size 3.099999 10.1) (drill oval 2.999999 10) (layers *.Cu *.Mask))
+  (pad 2 smd roundrect (at 0 -13.49) (size 2.999999 4.000002) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25))
+)
